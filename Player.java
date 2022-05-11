@@ -21,6 +21,7 @@ public class Player
 			{
 				deck.add(new LandCard(false, "white"));
 			}
+			deck.add(new CreatureCard())
 		}
 		if(colorDeck.equals("blue"))
 		{
