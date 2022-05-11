@@ -103,6 +103,10 @@ public class Player
 	{
 		return availableMana;
 	}
+	public int getDeckSize()
+	{
+		return deck.size();
+	}
 	
 	public void setAvailableMana(int num)
 	{
