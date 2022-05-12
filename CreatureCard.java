@@ -3,6 +3,7 @@ public class CreatureCard extends Card
 {
 	private int power;
 	private int toughness;
+	private String abilities;
 	
 	public CreatureCard()
 	{
@@ -16,6 +17,16 @@ public class CreatureCard extends Card
 		this.setName(n);
 		this.setColor(c);
 		this.setManaCost(m);
+	}
+	
+	public CreatureCard(String n, String c, int m, int p, int t, String abils)
+	{
+		power  = p;
+		toughness = t;
+		this.setName(n);
+		this.setColor(c);
+		this.setManaCost(m); 
+		abilities = abils;
 	}
 	
 	public int getPower()

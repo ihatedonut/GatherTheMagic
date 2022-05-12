@@ -14,7 +14,7 @@ public class Player
 		life = 20;
 		hand = new ArrayList<Card>();
 		deck = new ArrayList<Card>();
-	}
+	
 	
 	
 	
@@ -25,15 +25,19 @@ public class Player
 					for(int i = 0; i < 25; i++)
 					{
 						deck.add(new LandCard("Plains", "white"));
-						deck.add(new CreatureCard("Aidan Gamma, Destroyer of Worlds", "white", 6, 9, 9));
 					}
+					deck.add(new CreatureCard("Aidan Gamma, Recumbant Healer", "white", 6, 2, 2, "gainlifepercreature"));
+
 				}
+	
 				if(colorDeck.equals("blue"))
 				{
 					for(int i = 0; i < 25; i++)
 					{
 						deck.add(new LandCard("Island", "blue"));
+						
 					}
+					deck.add(new CreatureCard("Samuel Golub", "blue", 6, 4, 7, "drawpercreature"));
 				}
 				if(colorDeck.equals("red"))
 				{
