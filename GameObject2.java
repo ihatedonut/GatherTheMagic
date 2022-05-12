@@ -37,6 +37,14 @@ public class GameObject2
 		P2battlefield.add(c);
 		P2.discard(P2.getIndexOfCard(c));
 	}
+	public void putOnP1BattlefieldFromLibrary(Card c)
+	{
+		P1battlefield.add(c);
+	}
+	public void putOnP2BattlefieldFromLibrary(Card c)
+	{
+		P2battlefield.add(c);
+	}
 	public void destroyP1Creature(int index)
 	{
 		P1battlefield.remove(index);
