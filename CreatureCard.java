@@ -4,6 +4,10 @@ public class CreatureCard extends Card
 	private int power;
 	private int toughness;
 	
+	public CreatureCard()
+	{
+		
+	}
 	
 	public CreatureCard(String n, String c, int m, int p, int t)
 	{
@@ -18,18 +22,40 @@ public class CreatureCard extends Card
 	{
 		return power;
 	}
-	public void setPower(int i)
-	{
-		power = i;
-	}
+	
 	public int getToughness()
 	{
 		return toughness;
 	}
-	public void setToughness()
-	{\
-		
-		
+	
+	public void incrementPower()
+	{
+		power++;
+	}
+	
+	public void incrementToughness()
+	{
+		toughness++;
+	}
+	
+	public void incrementPower(int num)
+	{
+		power += num;
+	}
+	
+	public void incrementToughness(int num)
+	{
+		toughness += num;
+	}
+	
+	public void setPower(int num)
+	{
+		power = num;
+	}
+	
+	public void setToughness(int num)
+	{
+		toughness = num;
 	}
 	
 	

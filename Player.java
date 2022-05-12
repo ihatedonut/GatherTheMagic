@@ -13,53 +13,44 @@ public class Player
 		life = 20;
 		hand = new ArrayList<Card>();
 		deck = new ArrayList<Card>();
-		
-		//deck array filler
-		if(colorDeck.equals("white"))
-		{
-			for(int i = 0; i < 25; i++)
-			{
-				deck.add(new LandCard(false, "white"));
-			}
-			deck.add(new CreatureCard())
-		}
-		if(colorDeck.equals("blue"))
-		{
-			for(int i = 0; i < 25; i++)
-			{
-				deck.add(new LandCard(false, "blue"));
-			}
-		}
-		if(colorDeck.equals("red"))
-		{
-			for(int i = 0; i < 25; i++)
-			{
-				deck.add(new LandCard(false, "red"));
-			}
-		}
-		if(colorDeck.equals("green"))
-		{
-			for(int i = 0; i < 25; i++)
-			{
-				deck.add(new LandCard(false, "green"));
-			}
-		}
-		if(colorDeck.equals("black"))
-		{
-			for(int i = 0; i < 25; i++)
-			{
-				deck.add(new LandCard(false, "black"));
-			}
-		}
-		//decks have been created past this point
-		for(int i = 0; i < 7; i++)
-		{
-			hand.add(new LandCard(false, "white"));
-		}
-		
-		
-		
-		
+	}
+	public void fillDeck(String colorDeck)
+	{
+				if(colorDeck.equals("white"))
+				{
+					for(int i = 0; i < 25; i++)
+					{
+						deck.add(new LandCard(false, "white"));
+					}
+				}
+				if(colorDeck.equals("blue"))
+				{
+					for(int i = 0; i < 25; i++)
+					{
+						deck.add(new LandCard(false, "blue"));
+					}
+				}
+				if(colorDeck.equals("red"))
+				{
+					for(int i = 0; i < 25; i++)
+					{
+						deck.add(new LandCard(false, "red"));
+					}
+				}
+				if(colorDeck.equals("green"))
+				{
+					for(int i = 0; i < 25; i++)
+					{
+						deck.add(new LandCard(false, "green"));
+					}
+				}
+				if(colorDeck.equals("black"))
+				{
+					for(int i = 0; i < 25; i++)
+					{
+						deck.add(new LandCard(false, "black"));
+					}
+				}
 	}
 	
 	public ArrayList<Card> getHand()
@@ -81,14 +72,38 @@ public class Player
 			deck.remove(0);
 		}
 	}
+	public int numCardsInDeck()
+	{
+		return deck.size();
+	}
+	
+	public Card getRandomCardFromDeck()
+	{
+		int index = (int) (Math.random() * deck.size());
+		return deck.get(index);
+	}
 	
 	public Card getRandomCardFromHand()
 	{
 		int index = (int) (Math.random() * this.numCardsInHand());
-		System.out.println(index);	
 		return hand.get(index);
 	}
+	public int getIndexOfCard(Card target)
+	{
+		int index = -1;
 	
+		for(int i = 0; i < hand.size(); i++)
+		{
+			
+			if(hand.get(i).getName().equals(target.getName()))
+			{
+				index = i;
+			}
+		}
+		return index;
+	
+		
+	}
 	public Card getCardFromHand(int index)
 	{
 		return hand.get(index);
