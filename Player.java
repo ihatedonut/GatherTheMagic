@@ -5,6 +5,7 @@ public class Player
 	private int life;
 	private ArrayList<Card> hand;
 	private ArrayList<Card> deck;
+	private ArrayList<Card> graveyard;
 	private int availableMana;
 	private final int MAXHANDSIZE = 7;
 	
@@ -14,41 +15,45 @@ public class Player
 		hand = new ArrayList<Card>();
 		deck = new ArrayList<Card>();
 	}
+	
+	
+	
 	public void fillDeck(String colorDeck)
 	{
 				if(colorDeck.equals("white"))
 				{
 					for(int i = 0; i < 25; i++)
 					{
-						deck.add(new LandCard(false, "white"));
+						deck.add(new LandCard("Plains", "white"));
+						deck.add(new CreatureCard("Aidan Gamma, Destroyer of Worlds", "white", 6, 9, 9));
 					}
 				}
 				if(colorDeck.equals("blue"))
 				{
 					for(int i = 0; i < 25; i++)
 					{
-						deck.add(new LandCard(false, "blue"));
+						deck.add(new LandCard("Island", "blue"));
 					}
 				}
 				if(colorDeck.equals("red"))
 				{
 					for(int i = 0; i < 25; i++)
 					{
-						deck.add(new LandCard(false, "red"));
+						deck.add(new LandCard("Mountatin", "red"));
 					}
 				}
 				if(colorDeck.equals("green"))
 				{
 					for(int i = 0; i < 25; i++)
 					{
-						deck.add(new LandCard(false, "green"));
+						deck.add(new LandCard("Forest", "green"));
 					}
 				}
 				if(colorDeck.equals("black"))
 				{
 					for(int i = 0; i < 25; i++)
 					{
-						deck.add(new LandCard(false, "black"));
+						deck.add(new LandCard("Swamp", "black"));
 					}
 				}
 	}
