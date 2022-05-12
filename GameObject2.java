@@ -12,8 +12,8 @@ public class GameObject2
 	{
 		P1battlefield = new ArrayList<Card>();
 		P2battlefield = new ArrayList<Card>();
-		P1 = new Player("N/A");
-		P2 = new Player("N/A");
+		P1 = new Player();
+		P2 = new Player();
 
 	}
 	

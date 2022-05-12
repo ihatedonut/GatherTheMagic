@@ -8,7 +8,7 @@ public class Player
 	private int availableMana;
 	private final int MAXHANDSIZE = 7;
 	
-	public Player(String colorDeck)
+	public Player()
 	{
 		life = 20;
 		hand = new ArrayList<Card>();
