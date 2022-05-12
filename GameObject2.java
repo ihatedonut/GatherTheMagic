@@ -53,5 +53,30 @@ public class GameObject2
 	{
 		P2battlefield.remove(index);
 	}
+	public int p1getCreatures()
+	{
+		int count =0;
+		for (int i=0; i<P1battlefield.size();i++)
+		{
+			if (P1battlefield.get(i) instanceof CreatureCard)
+			{
+				count++;
+			}
+		}
+		return count;
+	}
+	
+	public int p2getCreatures()
+	{
+		int count =0;
+		for (int i=0; i<P2battlefield.size();i++)
+		{
+			if (P2battlefield.get(i) instanceof CreatureCard)
+			{
+				count++;
+			}
+		}
+		return count;
+	}
 
 }
