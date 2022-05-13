@@ -90,6 +90,10 @@ public class CreatureCard extends Card
 	{
 		return turnsInPlay;
 	}
+	public void setCanAttack(boolean b)
+	{
+		canAttack = b;
+	}
 	
 	
 	

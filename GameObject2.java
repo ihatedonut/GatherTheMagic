@@ -27,6 +27,25 @@ public class GameObject2
 //		}
 //	}
 	
+	
+	public void P1plus1plus1all()
+	{
+		for(Card c : P1battlefield)
+		{
+			//c.incrementPower();
+		}
+	}
+	public ArrayList<CreatureCard> P1getAllCreatures()
+	{
+		for(int i = 0; i < P1battlefield.size(); i++)
+		{
+			ArrayList<CreatureCard> creaturesOnBattlefield = new ArrayList<CreatureCard>();
+			if(P1battlefield.get(i) instanceof CreatureCard)
+			{
+				creaturesOnBattlefield.add(P1battlefield.get(i));
+			}
+		}
+	}
 	public void putOnP1Battlefield(Card c)
 	{
 		P1battlefield.add(c);
