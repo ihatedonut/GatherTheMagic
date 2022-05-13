@@ -4,6 +4,7 @@ public class CreatureCard extends Card
 	private int power;
 	private int toughness;
 	private String abilities;
+	private String cardInfo;
 	
 	public CreatureCard()
 	{
@@ -17,9 +18,10 @@ public class CreatureCard extends Card
 		this.setName(n);
 		this.setColor(c);
 		this.setManaCost(m);
+		
 	}
 	
-	public CreatureCard(String n, String c, int m, int p, int t, String abils)
+	public CreatureCard(String n, String c, String cInfo, int m, int p, int t, String abils)
 	{
 		power  = p;
 		toughness = t;
@@ -27,6 +29,16 @@ public class CreatureCard extends Card
 		this.setColor(c);
 		this.setManaCost(m); 
 		abilities = abils;
+		cardInfo = cInfo;
+	}
+	public String getCardInfo()
+	{
+		return cardInfo;
+	}
+	
+	public void setCardInfo(String s)
+	{
+		cardInfo = s;
 	}
 	
 	public int getPower()

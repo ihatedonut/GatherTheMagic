@@ -37,14 +37,6 @@ public class GameObject2
 		P2battlefield.add(c);
 		P2.discard(P2.getIndexOfCard(c));
 	}
-	public void putOnP1BattlefieldFromLibrary(Card c)
-	{
-		P1battlefield.add(c);
-	}
-	public void putOnP2BattlefieldFromLibrary(Card c)
-	{
-		P2battlefield.add(c);
-	}
 	public void destroyP1Creature(int index)
 	{
 		P1battlefield.remove(index);
@@ -52,31 +44,6 @@ public class GameObject2
 	public void destroyP2Creature(int index)
 	{
 		P2battlefield.remove(index);
-	}
-	public int p1getCreatures()
-	{
-		int count =0;
-		for (int i=0; i<P1battlefield.size();i++)
-		{
-			if (P1battlefield.get(i) instanceof CreatureCard)
-			{
-				count++;
-			}
-		}
-		return count;
-	}
-	
-	public int p2getCreatures()
-	{
-		int count =0;
-		for (int i=0; i<P2battlefield.size();i++)
-		{
-			if (P2battlefield.get(i) instanceof CreatureCard)
-			{
-				count++;
-			}
-		}
-		return count;
 	}
 
 }
