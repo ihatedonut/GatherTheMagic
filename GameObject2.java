@@ -45,5 +45,6 @@ public class GameObject2
 	{
 		P2battlefield.remove(index);
 	}
+	//counter ++ at end step. then if creatures counter is gretaer >0 boolean can attack
 
 }

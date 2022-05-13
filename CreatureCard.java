@@ -5,6 +5,8 @@ public class CreatureCard extends Card
 	private int toughness;
 	private String abilities;
 	private String cardInfo;
+	private int turnsInPlay;
+	private boolean canAttack;
 	
 	public CreatureCard()
 	{
@@ -18,8 +20,8 @@ public class CreatureCard extends Card
 		this.setName(n);
 		this.setColor(c);
 		this.setManaCost(m);
-		
-	}
+		turnsInPlay=0;
+		canAttack=false;	}
 	
 	public CreatureCard(String n, String c, String cInfo, int m, int p, int t, String abils)
 	{
@@ -30,7 +32,11 @@ public class CreatureCard extends Card
 		this.setManaCost(m); 
 		abilities = abils;
 		cardInfo = cInfo;
+		turnsInPlay=0;
 	}
+	
+	
+	
 	public String getCardInfo()
 	{
 		return cardInfo;
@@ -79,6 +85,10 @@ public class CreatureCard extends Card
 	public void setToughness(int num)
 	{
 		toughness = num;
+	}
+	public int getTurnsInPlay()
+	{
+		return turnsInPlay;
 	}
 	
 	
