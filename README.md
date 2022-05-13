@@ -1,5 +1,6 @@
 # GatherTheMagic
 code keywords for the abils string array
+
 DRAWS:
 - draw - draws one card
 - drawpercreature - draws one card per creature
