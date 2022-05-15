@@ -40,6 +40,9 @@ public class CharacterPortrait extends JComponent
 		g2d.setColor(new Color(204, 189, 70));
 		g2d.setStroke(new BasicStroke(10));
 		g2d.draw(border);
+		
+		revalidate();
+		repaint();
 	}
 }
  

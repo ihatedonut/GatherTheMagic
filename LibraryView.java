@@ -13,7 +13,7 @@ public class LibraryView extends JPanel
 	private Image background;
 	private DoneButton doneButton;
 	
-	public LibraryView(JFrame frame)
+	public LibraryView(TestGUI frame)
 	{
 		this.setSize(frame.getWidth(), frame.getHeight());
 		this.setLayout(null);

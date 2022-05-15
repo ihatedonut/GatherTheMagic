@@ -1,20 +1,20 @@
 import java.awt.Dimension;
 import java.awt.Frame;
-import java.awt.Image;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.util.ArrayList;
 
-import javax.imageio.ImageIO;
+import java.awt.Toolkit;
+
+
 import javax.swing.*;
 
 public class TestGUI extends JFrame
 {
+	private GameObject2 game;
+	private Battlefield background;
+	private Library libButton;
 
 	public TestGUI()
 	{
+		game = new GameObject2();
 		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
 		this.setSize(screen);
 		this.setLayout(null);
@@ -25,32 +25,14 @@ public class TestGUI extends JFrame
 		this.setExtendedState(Frame.MAXIMIZED_BOTH);
 		this.setResizable(false);
 		
-		Battlefield background = new Battlefield(this);
+		background = new Battlefield(this);
 		this.setContentPane(background);
 		
-		Library lib = new Library();
-		this.add(lib);
-		lib.setLocation(175,500);
+		libButton = new Library(this);
+		libButton.setLocation(100,550);
+		this.add(libButton);
 		
-		LibraryView libView = new LibraryView(this);
 		
-		lib.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e)
-			{
-				setContentPane(libView);
-			}
-		});
-		
-		libView.getDoneButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e)
-			{
-				setContentPane(background);
-			}
-		});
-		
-		CardSleeve card = new CardSleeve();
-		this.add(card);
-		this.update(getGraphics());
 		
 		
 	}
@@ -58,6 +40,11 @@ public class TestGUI extends JFrame
 	public static void main(String[] args)
 	{
 		new TestGUI();
+	}
+	
+	public Battlefield getBattlefield()
+	{
+		return background;
 	}
 	
 	
