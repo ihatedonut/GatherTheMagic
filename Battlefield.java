@@ -16,11 +16,13 @@ public class Battlefield extends JPanel
 	private CharacterPortrait char1;
 	private CharacterPortrait char2;
 	private TurnButton turnButton;
-	private int phaseCount=0;
+	private int phaseCount = 0;
+	private GameObject2 game;
 	
-	public Battlefield(JFrame frame)
+	
+	public Battlefield(JFrame frame, GameObject2 game)
 	{
-		GameObject2 Game = new GameObject2();
+		this.game = game;
 		
 		this.setLayout(null);
 		try 
@@ -51,7 +53,7 @@ public class Battlefield extends JPanel
 			public void actionPerformed(ActionEvent e)
 			{
 				
-				Game.setPhaseP1(phaseCount);
+				game.setPhaseP1(phaseCount);
 				phaseCount++;
 				
 			if (phaseCount==4)

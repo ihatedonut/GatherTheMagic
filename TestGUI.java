@@ -25,7 +25,7 @@ public class TestGUI extends JFrame
 		this.setExtendedState(Frame.MAXIMIZED_BOTH);
 		this.setResizable(false);
 		
-		background = new Battlefield(this);
+		background = new Battlefield(this, game);
 		this.setContentPane(background);
 		
 		libButton = new Library(this);
@@ -45,6 +45,11 @@ public class TestGUI extends JFrame
 	public Battlefield getBattlefield()
 	{
 		return background;
+	}
+	
+	public GameObject2 getGame()
+	{
+		return game;
 	}
 	
 	
