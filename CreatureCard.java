@@ -59,6 +59,10 @@ public class CreatureCard extends Card
 	{
 		toughness = num;
 	}
+	public void setSummoning(boolean b)
+	{
+		summoning = b;
+	}
 	
 	
 	
