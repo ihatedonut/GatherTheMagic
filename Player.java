@@ -8,13 +8,14 @@ public class Player
 	private ArrayList<Card> graveyard;
 	private int availableMana;
 	private final int MAXHANDSIZE = 7;
+	private boolean summoningSickness;
 	
 	public Player()
 	{
 		life = 20;
 		hand = new ArrayList<Card>();
 		deck = new ArrayList<Card>();
-	
+		summoningSickness =  true;
 	
 	}
 	
@@ -36,13 +37,11 @@ public class Player
 					deck.add(new CreatureCard("Holy Berzerker","white" , 3,4,3));
 					deck.add(new CreatureCard("Oath Bringer", "white", 2,2,1));
 					deck.add(new CreatureCard("Poop the Soldier","white", 0,0,1));
-					deck.add(new CreatureCard("Prophet","white",2,1,2));
+					deck.add(new CreatureCard("Ageless Prophet","white",2,1,2));
 					deck.add(new CreatureCard("Big Bulging Ox","white",2,0,5));
 					deck.add(new CreatureCard("Jar-Jar", "white", 3, 1, 1));
-					deck.add(new CreatureCard("Qucik Fox", "white","Quick Fox can attack the turn it was played", 1,1,1, "haste"));
-					
-					
-					
+					deck.add(new CreatureCard("Quick Fox", "white","Quick Fox can attack the turn it was played", 1,1,1, "haste"));
+					deck.add(new CreatureCard("Codespell Luminancer", "white", "When Codespell Luminancer enters the battlefield, put a +1/+1 counter on target creature.", 3, 3, 2, "p1p1targetcreature"));
 				}
 	
 				if(colorDeck.equals("blue"))
@@ -75,7 +74,7 @@ public class Player
 					{
 						deck.add(new LandCard("Forest", "green"));
 					}
-					deck.add(new CreatureCard("Michael Sky, Greatest Of All Time", "green", "When Michael Sky enters the battlefield, put a +1/+1 counter on each creature you control.", 3, 3, 3, "+1+1percreature"));
+					deck.add(new CreatureCard("Michael Sky, Greatest Of All Time", "green", "When Michael Sky enters the battlefield, put a +1/+1 counter on each creature you control.", 3, 3, 3, "p1p1"));
 					deck.add(new CreatureCard("Wooden Elf", "green", 4, 3, 2));
 					deck.add(new CreatureCard("Treegoing Serpent", "green", 3, 2, 4));
 					deck.add(new CreatureCard("Tunnelling Miner", "green", "Tunnelling Miner can't be blocked.", 4, 1, 1, "cantbeblocked"));
