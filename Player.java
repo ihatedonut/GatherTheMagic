@@ -42,6 +42,8 @@ public class Player
 					deck.add(new CreatureCard("Jar-Jar", "white", 3, 1, 1));
 					deck.add(new CreatureCard("Quick Fox", "white","Quick Fox can attack the turn it was played", 1,1,1, "haste"));
 					deck.add(new CreatureCard("Codespell Luminancer", "white", "When Codespell Luminancer enters the battlefield, put a +1/+1 counter on target creature.", 3, 3, 2, "p1p1targetcreature"));
+					deck.add(new CreatureCard("Doomed Gatekeeper", "white", 5, 3, 9));
+					deck.add(new CreatureCard("Giant Killer", "white", "When Giant Killer enters the battlefield, destroy target creature.", 4, 2, 4, "destroycreature"))
 				}
 	
 				if(colorDeck.equals("blue"))

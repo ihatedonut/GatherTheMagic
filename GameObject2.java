@@ -20,6 +20,16 @@ public class GameObject2
 	}
 	
 	
+	
+//	public static void main(String[] args)
+//	{
+//		while(P1.getLife()>0 && P2.getLife()>0)
+//		{
+//			
+//		}
+//	}
+	
+	
 	public void P1plus1plus1all()
 	{
 		for(Card c : P1battlefield)
@@ -64,19 +74,37 @@ public class GameObject2
 	public void setPhaseP1(int i) {
 		if (i==0)
 		{
-			p1Phase = ("Main Phase");
+			p1Phase.equals("Main Phase");
 		}
 		if (i==1)
 		{
-			p1Phase = ("Attack Phase");
+			p1Phase.equals("Attack Phase");
 		}
 		if (i==2)
 		{
-			p1Phase = ("Main Phase 2");
+			p1Phase.equals("Main Phase 2");
 		}
 		if (i==3)
 		{
-			p1Phase = ("End Phase");
+			p1Phase.equals("End Phase");
+		}
+	}
+	public void setPhaseP2(int i) {
+		if (i==0)
+		{
+			p2Phase.equals("Main Phase");
+		}
+		if (i==1)
+		{
+			p2Phase.equals("Attack Phase");
+		}
+		if (i==2)
+		{
+			p2Phase.equals("Main Phase 2");
+		}
+		if (i==3)
+		{
+			p2Phase.equals("End Phase");
 		}
 	}
 
