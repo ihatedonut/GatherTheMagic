@@ -9,6 +9,6 @@ DRAWS:
 COUNTERS:
 - p1p1 - puts a +1 +1 counter on every card
 - p1p1percreature - plus one plus one for every creature
-
+- p1p1targetcreature - puts a plus one plus one on target creature
 
 draw 
