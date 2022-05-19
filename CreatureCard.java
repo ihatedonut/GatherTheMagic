@@ -33,6 +33,10 @@ public class CreatureCard extends Card
 		abilities = abils;
 		cardInfo = cInfo;
 		turnsInPlay=0;
+		if (abils.equals("haste"))
+		{
+			canAttack=true;
+		}
 	}
 	
 	
