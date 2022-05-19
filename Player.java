@@ -242,6 +242,18 @@ public class Player
 		hand.remove(index);
 	}
 	
+	public void shuffle()
+	{
+		for (int i = 0; i < deck.size(); i++)
+		{
+			Card card1 = deck.get(i);
+			int index = (int) (Math.random() * 60);
+			Card card2 = deck.get(index);
+			deck.set(index, card1);
+			deck.set(i, card2);
+		}
+	}
+	
 	
 	
 	
@@ -254,7 +266,6 @@ public class Player
 	
 	
 }
-
 
 
 
