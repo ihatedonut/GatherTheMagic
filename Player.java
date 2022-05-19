@@ -5,94 +5,52 @@ public class Player
 	private int life;
 	private ArrayList<Card> hand;
 	private ArrayList<Card> deck;
-	private ArrayList<Card> graveyard;
 	private int availableMana;
 	private final int MAXHANDSIZE = 7;
-	private boolean summoningSickness;
 	
 	public Player()
 	{
 		life = 20;
 		hand = new ArrayList<Card>();
 		deck = new ArrayList<Card>();
-		summoningSickness =  true;
-	
 	}
-	
 	public void fillDeck(String colorDeck)
 	{
 				if(colorDeck.equals("white"))
 				{
 					for(int i = 0; i < 25; i++)
 					{
-						deck.add(new LandCard("Plains", "white"));
+						deck.add(new LandCard(false, "white"));
 					}
-					deck.add(new CreatureCard("Aidan Gamma, Thunderous Cleric", "white", "When Aidan Gamma enters the battlefield, gain 1 life for each creature you control.", 4, 2, 3, "gainlifepercreature"));
-					deck.add(new CreatureCard("Astral Unicorn", "white", 3, 2, 3));
-					deck.add(new CreatureCard("Monk of Familiarity", "white", "When Monk of Familiarity enters the battlefield, return target creature to it's owners hand.", 3, 2, 2, "returncreature"));
-					deck.add(new CreatureCard("Usher of the Ageless", "white", 5, 4, 3));
-					deck.add(new CreatureCard("Unholy Beggar", "white", 2, 1, 2));
-					deck.add(new CreatureCard("Angel of Light","white",3,2,4));
-					deck.add(new CreatureCard("Cat","white",1,1,1));
-					deck.add(new CreatureCard("Holy Berzerker","white" , 3,4,3));
-					deck.add(new CreatureCard("Oath Bringer", "white", 2,2,1));
-					deck.add(new CreatureCard("Poop the Soldier","white", 0,0,1));
-					deck.add(new CreatureCard("Ageless Prophet","white",2,1,2));
-					deck.add(new CreatureCard("Big Bulging Ox","white",2,0,5));
-					deck.add(new CreatureCard("Jar-Jar", "white", 3, 1, 1));
-					deck.add(new CreatureCard("Quick Fox", "white","Quick Fox can attack the turn it was played", 1,1,1, "haste"));
-					deck.add(new CreatureCard("Codespell Luminancer", "white", "When Codespell Luminancer enters the battlefield, put a +1/+1 counter on target creature.", 3, 3, 2, "p1p1targetcreature"));
-					deck.add(new CreatureCard("Doomed Gatekeeper", "white", 5, 3, 9));
-					deck.add(new CreatureCard("Giant Killer", "white", "When Giant Killer enters the battlefield, destroy target creature.", 4, 2, 4, "destroycreature"))
 				}
-	
 				if(colorDeck.equals("blue"))
 				{
 					for(int i = 0; i < 25; i++)
 					{
-						deck.add(new LandCard("Island", "blue"));
+						deck.add(new LandCard(false, "blue"));
 					}
-					deck.add(new CreatureCard("Samuel Golub, Skyclave Trickster", "blue", "When Samuel Golub enters the battlefield, draw a card for each creature you control.", 6, 4, 7, "drawpercreature"));
-					deck.add(new CreatureCard("Tidal Golem", "blue", 7, 5, 7));
-					deck.add(new CreatureCard("Annoying Gull", "blue", 2, 1, 1));
-					deck.add(new CreatureCard("Swirling Lobster", "blue", 4, 2, 3));
-					deck.add(new CreatureCard("Wall of Mist", "blue", "When Wall of Mist enters the battlefield, tap target creature opponent controls.", 2, 0, 4, "tapcreature"));
 				}
 				if(colorDeck.equals("red"))
 				{
 					for(int i = 0; i < 25; i++)
 					{
-						deck.add(new LandCard("Mountain", "red"));
+						deck.add(new LandCard(false, "red"));
 					}
-					deck.add(new CreatureCard("John Dufour, God of Chaos", "red", "When John Dufour enters the battlefield, deal 1 damage to opponent for each creature you control.", 2, 1, 1, "damagepercreature"));
-					deck.add(new CreatureCard("Mischevious Goblin", "red", 2, 2, 1));
-					deck.add(new CreatureCard("Festering Arachnid", "red", 3, 2, 2));
-					deck.add(new CreatureCard("Wayward General", "red", "When Wayward General enters the battlefield, deal 3 damage to target creature.", 5, 4, 4, "3damagecreature"));
-					deck.add(new CreatureCard("Bloody Rat", "red", 1, 1, 1));
 				}
 				if(colorDeck.equals("green"))
 				{
 					for(int i = 0; i < 25; i++)
 					{
-						deck.add(new LandCard("Forest", "green"));
+						deck.add(new LandCard(false, "green"));
 					}
-					deck.add(new CreatureCard("Michael Sky, Greatest Of All Time", "green", "When Michael Sky enters the battlefield, put a +1/+1 counter on each creature you control.", 3, 3, 3, "p1p1"));
-					deck.add(new CreatureCard("Wooden Elf", "green", 4, 3, 2));
-					deck.add(new CreatureCard("Treegoing Serpent", "green", 3, 2, 4));
-					deck.add(new CreatureCard("Tunnelling Miner", "green", "Tunnelling Miner can't be blocked.", 4, 1, 1, "cantbeblocked"));
-					deck.add(new CreatureCard("Trampling Bear-Fox", "green", 6, 8, 8));
 				}
 				if(colorDeck.equals("black"))
 				{
 					for(int i = 0; i < 25; i++)
 					{
-						deck.add(new LandCard("Swamp", "black"));
+						deck.add(new LandCard(false, "black"));
 					}
-					deck.add(new CreatureCard("Mr. Ellis, Devouring Chaos", "black", "When Mr. Ellis enters the battlefield, destroy all other creatures.", 7, 5, 5, "destroyothercreatures"));		}
-					deck.add(new CreatureCard("Spirit Eater", "black", 3, 1, 2));
-					deck.add(new CreatureCard("Horrifying Ghost", "black", 2, 2, 1));
-					deck.add(new CreatureCard("Screeching Witch", "black", "When Screeching Witch enters the battlefield, tap all opponent creatures.", 6, 1, 1, "tapopponentcreatures"));
-					deck.add(new CreatureCard("Undead Horde", "black", 7, 5, 7));
+				}
 	}
 	
 	public ArrayList<Card> getHand()
