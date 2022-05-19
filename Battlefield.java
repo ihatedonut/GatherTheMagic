@@ -4,9 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -27,7 +25,7 @@ public class Battlefield extends JPanel
 		this.setLayout(null);
 		try 
 		{
-			background = ImageIO.read(new File("blank battlefield.jpg")).getScaledInstance(frame.getWidth(), frame.getHeight(), Image.SCALE_DEFAULT);
+			background = ImageIO.read(new File("blank battlefield.jpg")).getScaledInstance(frame.getWidth(), frame.getHeight() + 10, Image.SCALE_DEFAULT);
 		}
 		catch (IOException e)
 		{
@@ -36,13 +34,13 @@ public class Battlefield extends JPanel
 		this.setVisible(true);
 		this.setSize(frame.getSize());
 		
-		char1 = new CharacterPortrait();
-		char2 = new CharacterPortrait();
+		char1 = new CharacterPortrait(game.getPlayer1().getLife());
+		char2 = new CharacterPortrait(game.getPlayer2().getLife());
 		
 		char1.setLocation(650,600);
 		this.add(char1);
 		
-		char2.setLocation(650,50);
+		char2.setLocation(650,10);
 		this.add(char2);
 		
 		turnButton = new TurnButton();

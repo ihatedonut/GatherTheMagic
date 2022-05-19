@@ -14,6 +14,7 @@ public class TestGUI extends JFrame
 
 	public TestGUI()
 	{
+		this.setTitle("Gather the Magic");
 		game = new GameObject2();
 		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
 		this.setSize(screen);

@@ -3,20 +3,23 @@ import java.awt.Image;
 import java.awt.geom.Ellipse2D;
 import java.io.File;
 import java.io.IOException;
-import javax.swing.JComponent;
+import javax.swing.JPanel;
 import javax.imageio.ImageIO;
 import java.awt.Graphics2D;
 import java.awt.BasicStroke;
 import java.awt.Color;
 
-public class CharacterPortrait extends JComponent
+public class CharacterPortrait extends JPanel
 {
 	private Image portrait;
 	private Ellipse2D.Double border;
+	private LifeLabel lifeLabel;
 	
-	public CharacterPortrait()
+	public CharacterPortrait(int h)
 	{
-		this.setSize(110,110);
+		this.setLayout(null);
+		this.setOpaque(false);
+		this.setSize(150,150);
 		try 
 		{
 			portrait = ImageIO.read(new File("sparky transparent.png")).getScaledInstance(100,100,Image.SCALE_DEFAULT);
@@ -26,7 +29,11 @@ public class CharacterPortrait extends JComponent
 			System.out.println("Error - Image Not Found");
 		}
 		
-		border = new Ellipse2D.Double(5,5,101,101);
+		border = new Ellipse2D.Double(5,30,101,101);
+		
+		lifeLabel = new LifeLabel(h);
+		this.add(lifeLabel);
+		
 		this.setVisible(true);
 		this.setFocusable(false);
 	}
@@ -34,7 +41,7 @@ public class CharacterPortrait extends JComponent
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
-		g.drawImage(portrait,5,5,null);
+		g.drawImage(portrait,5,30,null);
 		
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setColor(new Color(204, 189, 70));
