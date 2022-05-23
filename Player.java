@@ -53,10 +53,41 @@ public class Player
 					}
 					deck.add(new CreatureCard("Samuel Golub, Skyclave Trickster", "blue", "When Samuel Golub enters the battlefield, draw a card for each creature you control.", 6, 4, 7, "drawpercreature"));
 					deck.add(new CreatureCard("Tidal Golem", "blue", 7, 5, 7));
+					deck.add(new CreatureCard("Samuel Golub, Skyclave Trickster", "blue", "When Samuel Golub enters the battlefield, draw a card for each creature you control.", 6, 4, 7, "drawpercreature"));
 					deck.add(new CreatureCard("Annoying Gull", "blue", 2, 1, 1));
 					deck.add(new CreatureCard("Swirling Lobster", "blue", 4, 2, 3));
 					deck.add(new CreatureCard("Wall of Mist", "blue", "When Wall of Mist enters the battlefield, tap target creature opponent controls.", 2, 0, 4, "tapcreature"));
-				}
+					deck.add(new CreatureCard("Cobbled Lancer","blue",1,3,3));
+					deck.add(new CreatureCard("Aegis Turtle","blue",1,0,5));
+					deck.add(new CreatureCard("Symmetry Sage", "blue",1,0,3));
+					deck.add(new CreatureCard("Eidolon of Philosophy","blue",1,1,2));
+					deck.add(new CreatureCard("Expendable Lackey","blue",1,1,1));
+					deck.add(new CreatureCard("Expiremental Pilot","blue",1,1,1));
+					deck.add(new CreatureCard("Expiremental Pilot","blue",1,1,1));
+					deck.add(new CreatureCard("Expiremental Pilot","blue",1,1,1));
+					deck.add(new CreatureCard("Frost Augur","blue",1,1,2));
+					deck.add(new CreatureCard("Frost Augur","blue",1,1,2));
+					deck.add(new CreatureCard("Frost Augur","blue",1,1,2));
+					deck.add(new CreatureCard("Larder Zombie","blue",1,0,3));
+					deck.add(new CreatureCard("Aether Theorist","blue",2,1,3));
+					deck.add(new CreatureCard("Backstreet Bruiser","blue",2,2,3));
+					deck.add(new CreatureCard("Backstreet Bruiser","blue",2,2,3));
+					deck.add(new CreatureCard("Backstreet Bruiser","blue",2,2,3));
+					deck.add(new CreatureCard("Big Ass Wall","blue",5,0,12));
+					deck.add(new CreatureCard("Big Ass Wall","blue",5,0,12));
+					deck.add(new CreatureCard("Big Ass Wall","blue",5,0,12));
+					deck.add(new CreatureCard("Rapid Swinger","blue",4,6,2));
+					deck.add(new CreatureCard("Dubious Carp","blue",3,3,5));
+					deck.add(new CreatureCard("The Moon's Vengence","blue",8,6,12));
+					deck.add(new CreatureCard("The Moon's Vengence","blue",8,6,12));
+					deck.add(new CreatureCard("Ormos, Archive Keeper","blue",6,5,5));
+					deck.add(new CreatureCard("Phantom Carraige","blue",4,4,4));
+					deck.add(new CreatureCard("Rapid Swinger","blue",4,6,2));	
+					deck.add(new CreatureCard("Deathly Stare","blue",5,5,5));
+					deck.add(new CreatureCard("Timeless Strike","blue",3,3,3));
+					deck.add(new CreatureCard("Naida Magam","blue",2,2,2));
+					deck.add(new CreatureCard("Screaming Swarm","blue",2,0,4));
+								}
 				if(colorDeck.equals("red"))
 				{
 					for(int i = 0; i < 25; i++)
