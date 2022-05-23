@@ -9,8 +9,7 @@ import javax.swing.*;
 public class TestGUI extends JFrame
 {
 	private GameObject2 game;
-	private Battlefield background;
-	private Library libButton;
+	private static Battlefield background;
 
 	public TestGUI()
 	{
@@ -29,10 +28,6 @@ public class TestGUI extends JFrame
 		background = new Battlefield(this, game);
 		this.setContentPane(background);
 		
-		libButton = new Library(this);
-		libButton.setLocation(100,550);
-		this.add(libButton);
-		
 		
 		
 		
@@ -43,7 +38,7 @@ public class TestGUI extends JFrame
 		new TestGUI();
 	}
 	
-	public Battlefield getBattlefield()
+	public static Battlefield getBattlefield()
 	{
 		return background;
 	}

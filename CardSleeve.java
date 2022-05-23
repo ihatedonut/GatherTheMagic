@@ -1,28 +1,30 @@
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
+import java.awt.Image;
 
 public class CardSleeve extends JPanel
 {
-	private BufferedImage sleeve;
+	private Image sleeve;
+	private Card card;
 	
-	public CardSleeve()
+	public CardSleeve(Card card)
 	{
+		this.card = card;
 		try 
 		{
-			sleeve = ImageIO.read(new File("CardSleeve.jpg"));
+			sleeve = ImageIO.read(new File("CardSleeve.jpg")).getScaledInstance(75,125,Image.SCALE_DEFAULT);
 		} 
 		catch (IOException e) 
 		{
 			System.out.println("Error - Image not Found");
 		}
 		
-		this.setSize(150,225);
+		this.setSize(75,125);
 		this.setVisible(true);
 		this.setLocation(200,200);
 		

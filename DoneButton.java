@@ -23,7 +23,7 @@ public class DoneButton extends JButton
 			System.out.println("Error - Image Not Found");
 		}
 		
-		this.setLocation(1000,20);
+		this.setLocation(1200,20);
 	}
 	
 	public void paintComponent(Graphics g)

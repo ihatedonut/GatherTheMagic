@@ -13,13 +13,13 @@ public class Library extends JButton
 	private Image buttonImage;
 	private LibraryView libView;
 	
-	public Library(TestGUI frame)
+	public Library(JFrame frame)
 	{
-		this.setSize(125,175);
+		this.setSize(100,150);
 		this.setVisible(true);
 		try 
 		{
-			buttonImage = ImageIO.read(new File("CardSleeve.jpg")).getScaledInstance(125, 175, Image.SCALE_DEFAULT);
+			buttonImage = ImageIO.read(new File("CardSleeve.jpg")).getScaledInstance(100, 150, Image.SCALE_DEFAULT);
 		} 
 		catch (IOException e) 
 		{
@@ -38,7 +38,7 @@ public class Library extends JButton
 		libView.getDoneButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				frame.setContentPane(frame.getBattlefield());
+				frame.setContentPane(TestGUI.getBattlefield());
 			}
 		});
 	}

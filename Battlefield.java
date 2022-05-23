@@ -16,6 +16,7 @@ public class Battlefield extends JPanel
 	private TurnButton turnButton;
 	private int phaseCount = 0;
 	private GameObject2 game;
+	private Library libButton;
 	
 	
 	public Battlefield(JFrame frame, GameObject2 game)
@@ -37,15 +38,19 @@ public class Battlefield extends JPanel
 		char1 = new CharacterPortrait(game.getPlayer1().getLife());
 		char2 = new CharacterPortrait(game.getPlayer2().getLife());
 		
-		char1.setLocation(650,600);
+		char1.setLocation(650,550);
 		this.add(char1);
 		
-		char2.setLocation(650,10);
+		char2.setLocation(650,60);
 		this.add(char2);
 		
 		turnButton = new TurnButton();
-		turnButton.setLocation(1150,650);
+		turnButton.setLocation(1200,680);
 		this.add(turnButton);
+		
+		libButton = new Library(frame);
+		libButton.setLocation(100,590);
+		this.add(libButton);
 		
 		turnButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)

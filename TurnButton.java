@@ -12,11 +12,11 @@ public class TurnButton extends JButton
 	
 	public TurnButton()
 	{
-		this.setSize(175,75);
+		this.setSize(125,50);
 		this.setVisible(true);
 		try 
 		{
-			buttonImage = ImageIO.read(new File("end turn button.png")).getScaledInstance(175,75,Image.SCALE_DEFAULT);
+			buttonImage = ImageIO.read(new File("end turn button.png")).getScaledInstance(125,50,Image.SCALE_DEFAULT);
 		} 
 		catch (IOException e) 
 		{

@@ -22,14 +22,14 @@ public class CharacterPortrait extends JPanel
 		this.setSize(150,150);
 		try 
 		{
-			portrait = ImageIO.read(new File("sparky transparent.png")).getScaledInstance(100,100,Image.SCALE_DEFAULT);
+			portrait = ImageIO.read(new File("sparky transparent.png")).getScaledInstance(75,75,Image.SCALE_DEFAULT);
 		} 
 		catch (IOException e) 
 		{
 			System.out.println("Error - Image Not Found");
 		}
 		
-		border = new Ellipse2D.Double(5,30,101,101);
+		border = new Ellipse2D.Double(5,30,76,76);
 		
 		lifeLabel = new LifeLabel(h);
 		this.add(lifeLabel);
