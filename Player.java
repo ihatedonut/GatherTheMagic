@@ -64,10 +64,40 @@ public class Player
 						deck.add(new LandCard("Mountain", "red"));
 					}
 					deck.add(new CreatureCard("John Dufour, God of Chaos", "red", "When John Dufour enters the battlefield, deal 1 damage to opponent for each creature you control.", 2, 1, 1, "damagepercreature"));
-					deck.add(new CreatureCard("Mischevious Goblin", "red", 2, 2, 1));
-					deck.add(new CreatureCard("Festering Arachnid", "red", 3, 2, 2));
+					deck.add(new CreatureCard("Mischevious Goblin", "red", 2, 2, 2));
+					deck.add(new CreatureCard("Mischevious Goblin", "red", 2, 2, 2));
+					deck.add(new CreatureCard("Festering Arachnid", "red", 3, 3, 2));
+					deck.add(new CreatureCard("Festering Arachnid", "red", 3, 3, 2));
+					deck.add(new CreatureCard("Festering Arachnid", "red", 3, 3, 2));
+					deck.add(new CreatureCard("Festering Arachnid", "red", 3, 3, 2));
+					deck.add(new CreatureCard("Wayward General", "red", "When Wayward General enters the battlefield, deal 3 damage to target creature.", 5, 4, 4, "3damagecreature"));
 					deck.add(new CreatureCard("Wayward General", "red", "When Wayward General enters the battlefield, deal 3 damage to target creature.", 5, 4, 4, "3damagecreature"));
 					deck.add(new CreatureCard("Bloody Rat", "red", 1, 1, 1));
+					deck.add(new CreatureCard("Bloody Rat", "red", 1, 1, 1));
+					deck.add(new CreatureCard("Quick Goblin", "red", "Quick Goblin can attack the turn it enters the battlefield", 1, 1, 1, "haste"));
+					deck.add(new CreatureCard("Quick Goblin", "red", "Quick Goblin can attack the turn it enters the battlefield", 1, 1, 1, "haste"));
+					deck.add(new CreatureCard("Quick Goblin", "red", "Quick Goblin can attack the turn it enters the battlefield", 1, 1, 1, "haste"));
+					deck.add(new CreatureCard("Quick Goblin", "red", "Quick Goblin can attack the turn it enters the battlefield", 1, 1, 1, "haste"));
+					deck.add(new CreatureCard("Coniving Creature", "red", 0, 0, 1));
+					deck.add(new CreatureCard("Coniving Creature", "red", 0, 0, 1));
+					deck.add(new CreatureCard("Coniving Creature", "red", 0, 0, 1));
+					deck.add(new CreatureCard("Coniving Creature", "red", 0, 0, 1));
+					deck.add(new CreatureCard("Towering Troll", "red", 6, 7, 5));
+					deck.add(new CreatureCard("Towering Troll", "red", 6, 7, 5));
+					deck.add(new CreatureCard("Towering Troll", "red", 6, 7, 5));
+					deck.add(new CreatureCard("Towering Troll", "red", 6, 7, 5));
+					deck.add(new CreatureCard("Burning Man", "red", 2, 3, 2));
+					deck.add(new CreatureCard("Burning Man", "red", 2, 3, 2));
+					deck.add(new CreatureCard("Burning Man", "red", 2, 3, 2));
+					deck.add(new CreatureCard("Burning Man", "red", 2, 3, 2));
+					deck.add(new CreatureCard("Mountain Troll", "red", 8, 9, 8));
+					deck.add(new CreatureCard("Mountain Troll", "red", 8, 9, 8));
+					deck.add(new CreatureCard("Mountain Troll", "red", 8, 9, 8));
+					deck.add(new CreatureCard("Mountain Troll", "red", 8, 9, 8));
+					deck.add(new CreatureCard("Tribal Goblin", "red", 4, 4, 3));
+					deck.add(new CreatureCard("Tribal Goblin", "red", 4, 4, 3));
+					deck.add(new CreatureCard("Tribal Goblin", "red", 4, 4, 3));
+										
 				}
 				if(colorDeck.equals("green"))
 				{
