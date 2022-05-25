@@ -53,8 +53,8 @@ public class Player
 					}
 					deck.add(new CreatureCard("Samuel Golub, Skyclave Trickster", "blue", "When Samuel Golub enters the battlefield, draw a card for each creature you control.", 6, 4, 7, "drawpercreature"));
 					deck.add(new CreatureCard("Tidal Golem", "blue", 7, 5, 7));
-					deck.add(new CreatureCard("Samuel Golub, Skyclave Trickster", "blue", "When Samuel Golub enters the battlefield, draw a card for each creature you control.", 6, 4, 7, "drawpercreature"));
 					deck.add(new CreatureCard("Annoying Gull", "blue", 2, 1, 1));
+					deck.add(new CreatureCard("Swirling Lobster", "blue", 4, 2, 3));
 					deck.add(new CreatureCard("Swirling Lobster", "blue", 4, 2, 3));
 					deck.add(new CreatureCard("Wall of Mist", "blue", "When Wall of Mist enters the battlefield, tap target creature opponent controls.", 2, 0, 4, "tapcreature"));
 					deck.add(new CreatureCard("Cobbled Lancer","blue",1,3,3));
