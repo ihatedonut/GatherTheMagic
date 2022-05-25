@@ -26,20 +26,42 @@ public class Player
 					{
 						deck.add(new LandCard("Plains", "white"));
 					}
-					deck.add(new CreatureCard("Aidan Gamma, Thunderous Cleric", "white", "When Aidan Gamma enters the battlefield, gain 1 life for each creature you control.", 4, 2, 3, "gainlifepercreature"));
+							deck.add(new CreatureCard("Aidan Gamma, Thunderous Cleric", "white", "When Aidan Gamma enters the battlefield, gain 1 life for each creature you control.", 4, 2, 3, "gainlifepercreature"));
 					deck.add(new CreatureCard("Astral Unicorn", "white", 3, 2, 3));
 					deck.add(new CreatureCard("Monk of Familiarity", "white", "When Monk of Familiarity enters the battlefield, return target creature to it's owners hand.", 3, 2, 2, "returncreature"));
+					deck.add(new CreatureCard("Monk of Familiarity", "white", "When Monk of Familiarity enters the battlefield, return target creature to it's owners hand.", 3, 2, 2, "returncreature"));
+					deck.add(new CreatureCard("Monk of Familiarity", "white", "When Monk of Familiarity enters the battlefield, return target creature to it's owners hand.", 3, 2, 2, "returncreature"));
+					deck.add(new CreatureCard("Usher of the Ageless", "white", 5, 4, 3));
+					deck.add(new CreatureCard("Usher of the Ageless", "white", 5, 4, 3));
 					deck.add(new CreatureCard("Usher of the Ageless", "white", 5, 4, 3));
 					deck.add(new CreatureCard("Unholy Beggar", "white", 2, 1, 2));
 					deck.add(new CreatureCard("Angel of Light","white",3,2,4));
-					deck.add(new CreatureCard("Cat","white",1,1,1));
+					deck.add(new CreatureCard("Angel of Light","white",3,2,4));
+					deck.add(new CreatureCard("Angel of Light","white",3,2,4));
+					deck.add(new CreatureCard("Angel of Light","white",3,2,4));
+					deck.add(new CreatureCard("Light Cat","white",1,1,1));
+					deck.add(new CreatureCard("Light Cat","white",1,1,1));
+					deck.add(new CreatureCard("Light Cat","white",1,1,1));
+					deck.add(new CreatureCard("Light Cat","white",1,1,1));
+					deck.add(new CreatureCard("Holy Berzerker","white" , 3,4,3));
+					deck.add(new CreatureCard("Holy Berzerker","white" , 3,4,3));
+					deck.add(new CreatureCard("Holy Berzerker","white" , 3,4,3));
 					deck.add(new CreatureCard("Holy Berzerker","white" , 3,4,3));
 					deck.add(new CreatureCard("Oath Bringer", "white", 2,2,1));
 					deck.add(new CreatureCard("Poop the Soldier","white", 0,0,1));
+					deck.add(new CreatureCard("Poop the Soldier","white", 0,0,1));
 					deck.add(new CreatureCard("Prophet","white",2,1,2));
+					deck.add(new CreatureCard("Big Bulging Ox","white",2,0,5));
+					deck.add(new CreatureCard("Big Bulging Ox","white",2,0,5));
+					deck.add(new CreatureCard("Big Bulging Ox","white",2,0,5));
 					deck.add(new CreatureCard("Big Bulging Ox","white",2,0,5));
 					deck.add(new CreatureCard("Jar-Jar", "white", 3, 1, 1));
 					deck.add(new CreatureCard("Qucik Fox", "white","Quick Fox can attack the turn it was played", 1,1,1, "haste"));
+					deck.add(new CreatureCard("Qucik Fox", "white","Quick Fox can attack the turn it was played", 1,1,1, "haste"));
+					deck.add(new CreatureCard("Holy Soldier","white" , 4,4,4));
+					deck.add(new CreatureCard("Holy Soldier","white" , 4,4,4));
+					deck.add(new CreatureCard("Holy Soldier","white" , 4,4,4));
+					
 					
 					
 					
