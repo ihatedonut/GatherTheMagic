@@ -26,7 +26,7 @@ public class Player
 					{
 						deck.add(new LandCard("Plains", "white"));
 					}
-							deck.add(new CreatureCard("Aidan Gamma, Thunderous Cleric", "white", "When Aidan Gamma enters the battlefield, gain 1 life for each creature you control.", 4, 2, 3, "gainlifepercreature"));
+					deck.add(new CreatureCard("Aidan Gamma, Thunderous Cleric", "white", "When Aidan Gamma enters the battlefield, gain 1 life for each creature you control.", 4, 2, 3, "gainlifepercreature"));
 					deck.add(new CreatureCard("Astral Unicorn", "white", 3, 2, 3));
 					deck.add(new CreatureCard("Monk of Familiarity", "white", "When Monk of Familiarity enters the battlefield, return target creature to it's owners hand.", 3, 2, 2, "returncreature"));
 					deck.add(new CreatureCard("Monk of Familiarity", "white", "When Monk of Familiarity enters the battlefield, return target creature to it's owners hand.", 3, 2, 2, "returncreature"));
@@ -86,7 +86,6 @@ public class Player
 					deck.add(new CreatureCard("Expendable Lackey","blue",1,1,1));
 					deck.add(new CreatureCard("Expiremental Pilot","blue",1,1,1));
 					deck.add(new CreatureCard("Expiremental Pilot","blue",1,1,1));
-					deck.add(new CreatureCard("Expiremental Pilot","blue",1,1,1));
 					deck.add(new CreatureCard("Frost Augur","blue",1,1,2));
 					deck.add(new CreatureCard("Frost Augur","blue",1,1,2));
 					deck.add(new CreatureCard("Frost Augur","blue",1,1,2));
@@ -109,7 +108,7 @@ public class Player
 					deck.add(new CreatureCard("Timeless Strike","blue",3,3,3));
 					deck.add(new CreatureCard("Naida Magam","blue",2,2,2));
 					deck.add(new CreatureCard("Screaming Swarm","blue",2,0,4));
-								}
+					}
 				if(colorDeck.equals("red"))
 				{
 					for(int i = 0; i < 25; i++)
@@ -205,10 +204,39 @@ public class Player
 					}
 					deck.add(new CreatureCard("Mr. Ellis, Devouring Chaos", "black", "When Mr. Ellis enters the battlefield, destroy all other creatures.", 7, 5, 5, "destroyothercreatures"));		}
 					deck.add(new CreatureCard("Spirit Eater", "black", 3, 1, 2));
+					deck.add(new CreatureCard("Spirit Eater", "black", 3, 1, 2));
 					deck.add(new CreatureCard("Horrifying Ghost", "black", 2, 2, 1));
 					deck.add(new CreatureCard("Screeching Witch", "black", "When Screeching Witch enters the battlefield, tap all opponent creatures.", 6, 1, 1, "tapopponentcreatures"));
 					deck.add(new CreatureCard("Undead Horde", "black", 7, 5, 7));
-	}
+					deck.add(new CreatureCard("Archfiend's Vessel","black",1,1,1));
+					deck.add(new CreatureCard("Banehound","black",1,1,1));
+					deck.add(new CreatureCard("Lone Zombie", "black",1,2,1));
+					deck.add(new CreatureCard("Lone Zombie", "black",1,2,1));
+					deck.add(new CreatureCard("Lone Zombie", "black",1,2,1));
+					deck.add(new CreatureCard("Lone Zombie", "black",1,2,1));
+					deck.add(new CreatureCard("Concealing Curtains","black",1,0,4));
+					deck.add(new CreatureCard("Changeling Outcast","black",2,2,2));
+					deck.add(new CreatureCard("Elderfang Ritualist","black",2,3,1));
+					deck.add(new CreatureCard("Skemfar Avenger","black",3,3,2));
+					deck.add(new CreatureCard("Sepulchar Ghoul","black",2,2,2));
+					deck.add(new CreatureCard("Asylum Visitor","When Asylum Visitor enters the battlefield, draw a card.","black",3,2,2,"draw"));
+					deck.add(new CreatureCard("BlackLance Paragon","black",2,3,2));
+					deck.add(new CreatureCard("Alley Strangler","black",3,4,2));
+					deck.add(new CreatureCard("Ammit Eternal","black",3,4,4));
+					deck.add(new CreatureCard("Angrath's Ambusher","black",3,2,3));
+					deck.add(new CreatureCard("Thornmantle Striker","black",4,4,3));
+					deck.add(new CreatureCard("Bloodsworn Squire","black",4,3,3));
+					deck.add(new CreatureCard("Bloodhunter Bat","When Bloodhunter Bat enters the battlefieldd, draw 1 card.","black",4,2,2,"draw"));
+					deck.add(new CreatureCard("Anointed Deacon","black",5,5,3));
+					deck.add(new CreatureCard("Silent Knife","black",5,8,2));
+					deck.add(new CreatureCard("Silent Knife","black",5,8,2));
+					deck.add(new CreatureCard("Blade juggler","black",5,4,3));
+					deck.add(new CreatureCard("Dark Commander","When Dark Commander enters the battlfield, put a +1/+1 counter on all creature cards.","black",5,2,2,"p1p1"));
+					deck.add(new CreatureCard("Dark Commander","When Dark Commander enters the battlfield, put a +1/+1 counter on all creature cards.","black",5,2,2,"p1p1"));
+					deck.add(new CreatureCard("Baleful Beholder","black",6,6,5));
+					deck.add(new CreatureCard("Asmodeus the Archfiend","When Asmodeus the Archfiend enters the battlefield, draw a card.","black",7,6,6,"draw"));
+					deck.add(new CreatureCard("Bogstomper","black",6,7,6));
+					deck.add(new CreatureCard("Void Beckoner","black",8,8,8));
 	
 	public ArrayList<Card> getHand()
 	{
