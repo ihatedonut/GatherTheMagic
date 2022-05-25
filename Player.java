@@ -103,7 +103,7 @@ public class Player
 					deck.add(new CreatureCard("The Moon's Vengence","blue",8,6,12));
 					deck.add(new CreatureCard("The Moon's Vengence","blue",8,6,12));
 					deck.add(new CreatureCard("Ormos, Archive Keeper","blue",6,5,5));
-					deck.add(new CreatureCard("Phantom Carraige","blue",4,4,4));
+					deck.add(new CreatureCard("Phantom Carraige","When Phantom Carraige enters the battlefield, draw a card.","blue",4,3,3,"draw"));
 					deck.add(new CreatureCard("Rapid Swinger","blue",4,6,2));	
 					deck.add(new CreatureCard("Deathly Stare","blue",5,5,5));
 					deck.add(new CreatureCard("Timeless Strike","blue",3,3,3));
