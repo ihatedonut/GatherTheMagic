@@ -10,6 +10,11 @@ public class LandCard extends Card
 		tapped = false;
 	}
 	
+	public boolean getTapped()
+	{
+		return tapped;
+	}
+	
 	
 	
 	

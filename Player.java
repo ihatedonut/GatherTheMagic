@@ -9,11 +9,13 @@ public class Player
 	private int availableMana;
 	private final int MAXHANDSIZE = 7;
 	
-	public Player()
+	public Player(String color)
 	{
 		life = 20;
 		hand = new ArrayList<Card>();
 		deck = new ArrayList<Card>();
+		this.fillDeck(color);
+		this.setNewHand();
 	
 	
 	}
@@ -56,18 +58,14 @@ public class Player
 					deck.add(new CreatureCard("Big Bulging Ox","white",2,0,5));
 					deck.add(new CreatureCard("Big Bulging Ox","white",2,0,5));
 					deck.add(new CreatureCard("Jar-Jar", "white", 3, 1, 1));
-					deck.add(new CreatureCard("Qucik Fox", "white","Quick Fox can attack the turn it was played", 1,1,1, "haste"));
-					deck.add(new CreatureCard("Qucik Fox", "white","Quick Fox can attack the turn it was played", 1,1,1, "haste"));
+					deck.add(new CreatureCard("Quick Fox", "white","Quick Fox can attack the turn it was played", 1,1,1, "haste"));
+					deck.add(new CreatureCard("Quick Fox", "white","Quick Fox can attack the turn it was played", 1,1,1, "haste"));
 					deck.add(new CreatureCard("Holy Soldier","white" , 4,4,4));
 					deck.add(new CreatureCard("Holy Soldier","white" , 4,4,4));
 					deck.add(new CreatureCard("Holy Soldier","white" , 4,4,4));
-					
-					
-					
-					
 				}
 	
-				if(colorDeck.equals("blue"))
+				else if(colorDeck.equals("blue"))
 				{
 					for(int i = 0; i < 25; i++)
 					{
@@ -108,8 +106,8 @@ public class Player
 					deck.add(new CreatureCard("Timeless Strike","blue",3,3,3));
 					deck.add(new CreatureCard("Naida Magam","blue",2,2,2));
 					deck.add(new CreatureCard("Screaming Swarm","blue",2,0,4));
-					}
-				if(colorDeck.equals("red"))
+				}
+				else if(colorDeck.equals("red"))
 				{
 					for(int i = 0; i < 25; i++)
 					{
@@ -151,7 +149,7 @@ public class Player
 					deck.add(new CreatureCard("Tribal Goblin", "red", 4, 4, 3));
 										
 				}
-				if(colorDeck.equals("green"))
+				else if(colorDeck.equals("green"))
 				{
 					for(int i = 0; i < 25; i++)
 					{
@@ -191,18 +189,16 @@ public class Player
 					deck.add(new CreatureCard("Imposta Monkey", "green", 2, 2,2));
 					deck.add(new CreatureCard("Simple Wurm", "green", 0, 0, 1));
 					deck.add(new CreatureCard("Simple Wurm", "green", 0, 0, 1));
-					deck.add(new CreatureCard("Dominating Elf", "green", 6, 8, 4));
-				
-					
-					
+					deck.add(new CreatureCard("Dominating Elf", "green", 6, 8, 4));	
 				}
-				if(colorDeck.equals("black"))
+				else if(colorDeck.equals("black"))
 				{
+					
 					for(int i = 0; i < 25; i++)
 					{
 						deck.add(new LandCard("Swamp", "black"));
 					}
-					deck.add(new CreatureCard("Mr. Ellis, Devouring Chaos", "black", "When Mr. Ellis enters the battlefield, destroy all other creatures.", 7, 5, 5, "destroyothercreatures"));		}
+					deck.add(new CreatureCard("Mr. Ellis, Devouring Chaos", "black", "When Mr. Ellis enters the battlefield, destroy all other creatures.", 7, 5, 5, "destroyothercreatures"));		
 					deck.add(new CreatureCard("Spirit Eater", "black", 3, 1, 2));
 					deck.add(new CreatureCard("Spirit Eater", "black", 3, 1, 2));
 					deck.add(new CreatureCard("Horrifying Ghost", "black", 2, 2, 1));
@@ -237,6 +233,37 @@ public class Player
 					deck.add(new CreatureCard("Asmodeus the Archfiend","When Asmodeus the Archfiend enters the battlefield, draw a card.","black",7,6,6,"draw"));
 					deck.add(new CreatureCard("Bogstomper","black",6,7,6));
 					deck.add(new CreatureCard("Void Beckoner","black",8,8,8));
+				}
+	}
+
+			
+	public void setNewHand()
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			int index = -1;
+			for (int j = 0; j < deck.size(); j++)
+			{
+				if (deck.get(j) instanceof LandCard)
+				{
+					index = j;
+				}
+			}
+			if (index != -1)
+			{
+				hand.add(deck.remove(index));
+			}
+		}
+		for (int i = 0; i < 4; i++)
+		{
+			int index = 0;
+			while (!(deck.get(index) instanceof CreatureCard))
+			{
+				index = (int) (Math.random() * deck.size());
+			}
+			hand.add(deck.remove(index));
+		}
+	}
 	
 	public ArrayList<Card> getHand()
 	{
@@ -377,7 +404,6 @@ public class Player
 	
 	
 }
-
 
 
 

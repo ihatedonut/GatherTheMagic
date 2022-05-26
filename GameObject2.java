@@ -14,8 +14,8 @@ public class GameObject2
 	{
 		P1battlefield = new ArrayList<Card>();
 		P2battlefield = new ArrayList<Card>();
-		P1 = new Player();
-		P2 = new Player();
+		P1 = new Player("white");
+		P2 = new Player("red");
 
 	}
 	
@@ -31,9 +31,11 @@ public class GameObject2
 	
 	public void P1plus1plus1all()
 	{
-		for(Card c : P1battlefield)
+		ArrayList<CreatureCard> creatures = this.P1getAllCreatures();
+		for (CreatureCard c: creatures)
 		{
-			//c.incrementPower();
+			c.incrementPower();
+			c.incrementToughness();
 		}
 	}
 	public ArrayList<CreatureCard> P1getAllCreatures()
@@ -86,5 +88,6 @@ public class GameObject2
 			p1Phase = ("End Phase");
 		}
 	}
+
 
 }

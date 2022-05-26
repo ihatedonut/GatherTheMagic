@@ -21,7 +21,8 @@ public class CreatureCard extends Card
 		this.setColor(c);
 		this.setManaCost(m);
 		turnsInPlay=0;
-		canAttack=false;	}
+		canAttack=false;	
+	}
 	
 	public CreatureCard(String n, String c, String cInfo, int m, int p, int t, String abils)
 	{
@@ -33,10 +34,6 @@ public class CreatureCard extends Card
 		abilities = abils;
 		cardInfo = cInfo;
 		turnsInPlay=0;
-		if (abils.equals("haste"))
-		{
-			canAttack=true;
-		}
 	}
 	
 	
@@ -97,6 +94,10 @@ public class CreatureCard extends Card
 	public void setCanAttack(boolean b)
 	{
 		canAttack = b;
+	}
+	public boolean getCanAttack()
+	{
+		return canAttack;
 	}
 	
 	
