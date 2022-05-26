@@ -9,7 +9,7 @@ import javax.swing.*;
 
 public class LibraryView extends JPanel
 {
-	private ArrayList<CardSleeve> cards;
+	private ArrayList<CardSleeve> library;
 	private Image background;
 	private DoneButton doneButton;
 	

@@ -1,32 +1,37 @@
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.io.File;
 import java.io.IOException;
-import javax.imageio.ImageIO;
-import javax.swing.JPanel;
-import java.awt.Image;
 
-public class CardSleeve extends JPanel
+import javax.imageio.ImageIO;
+import javax.swing.JComponent;
+import javax.swing.JLayeredPane;
+import javax.swing.event.MouseInputAdapter;
+
+public class CardSleeve extends JComponent
 {
 	private Image sleeve;
-	private Card card;
+	private HandPanel panel;
+	private Card attachedCard;
 	
-	public CardSleeve(Card card)
+	public CardSleeve(HandPanel panel, Card card)
 	{
-		this.card = card;
+		this.panel = panel;
+		attachedCard = card;
 		try 
 		{
-			sleeve = ImageIO.read(new File("CardSleeve.jpg")).getScaledInstance(75,125,Image.SCALE_DEFAULT);
+			sleeve = ImageIO.read(new File(card.getName() + ".png")).getScaledInstance(150,200,Image.SCALE_DEFAULT);
 		} 
 		catch (IOException e) 
 		{
-			System.out.println("Error - Image not Found");
+			System.out.println("Error - Image not Found" + card.getName());
 		}
 		
-		this.setSize(75,125);
+		this.setSize(150,200);
 		this.setVisible(true);
-		this.setLocation(200,200);
 		
 		this.addMouseMotionListener(new MouseMotionListener() {
 			public void mouseDragged(MouseEvent e) 
@@ -39,9 +44,31 @@ public class CardSleeve extends JPanel
 			{
 				
 			}
+		});
+		this.addMouseListener(new MouseListener() {
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+			public void mousePressed(MouseEvent e) {
+				
+			}
+			public void mouseReleased(MouseEvent e) 
+			{
+				if (getY() > 450)
+				{
+					panel.arrangeCards();
+				}
+			}
+			public void mouseEntered(MouseEvent e) 
+			{
+				setLocation(getX(), getY() - 70);
+			}
+			public void mouseExited(MouseEvent e) 
+			{
+				setLocation(getX(), 618);
+			}
 			
 		});
-		
 	}
 	public void paintComponent(Graphics g)
 	{
@@ -49,5 +76,4 @@ public class CardSleeve extends JPanel
 		g.drawImage(sleeve, 0, 0, this);
 		
 	}
-	
 }

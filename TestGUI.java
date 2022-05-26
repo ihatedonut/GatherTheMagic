@@ -25,7 +25,7 @@ public class TestGUI extends JFrame
 		this.setExtendedState(Frame.MAXIMIZED_BOTH);
 		this.setResizable(false);
 		
-		background = new Battlefield(this, game);
+		background = new Battlefield(this, game, this);
 		this.setContentPane(background);
 		
 		

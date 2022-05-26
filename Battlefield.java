@@ -17,11 +17,13 @@ public class Battlefield extends JPanel
 	private int phaseCount = 0;
 	private GameObject2 game;
 	private Library libButton;
+	private JFrame frame;
 	
 	
-	public Battlefield(JFrame frame, GameObject2 game)
+	public Battlefield(JFrame frame, GameObject2 game, TestGUI gui)
 	{
 		this.game = game;
+		this.frame = frame;
 		
 		this.setLayout(null);
 		try 
@@ -35,13 +37,16 @@ public class Battlefield extends JPanel
 		this.setVisible(true);
 		this.setSize(frame.getSize());
 		
+		HandPanel handPanel = new HandPanel(gui, game);
+		this.add(handPanel);
+		
 		char1 = new CharacterPortrait(game.getPlayer1().getLife());
 		char2 = new CharacterPortrait(game.getPlayer2().getLife());
 		
-		char1.setLocation(650,550);
+		char1.setLocation(1200,550);
 		this.add(char1);
 		
-		char2.setLocation(650,60);
+		char2.setLocation(100,60);
 		this.add(char2);
 		
 		turnButton = new TurnButton();
