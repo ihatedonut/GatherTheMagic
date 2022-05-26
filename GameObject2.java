@@ -14,28 +14,49 @@ public class GameObject2
 	{
 		P1battlefield = new ArrayList<Card>();
 		P2battlefield = new ArrayList<Card>();
-		P1 = new Player("white");
-		P2 = new Player("red");
+		P1 = new Player();
+		P2 = new Player();
 
 	}
 	
-	public Player getPlayer1()
-	{
-		return P1;
-	}
-	public Player getPlayer2()
-	{
-		return P2;
-	}
+	
+	
+//	public static void main(String[] args)
+//	{
+//		while(P1.getLife()>0 && P2.getLife()>0)
+//		{
+//			
+//		}
+//	}
 	
 	
 	public void P1plus1plus1all()
 	{
-		ArrayList<CreatureCard> creatures = this.P1getAllCreatures();
-		for (CreatureCard c: creatures)
+		ArrayList<CreatureCard> p1Creatures = this.P1getAllCreatures();
+		for (CreatureCard c: p1Creatures)
 		{
-			c.incrementPower();
-			c.incrementToughness();
+			c.plusOneCounter();
+		}
+	}
+	public void P1gain1all()
+	{
+		ArrayList<CreatureCard> p1Creatures = this.P1getAllCreatures();
+		for (CreatureCard c: p1Creatures)
+		{
+			P1.incrementLife();
+		}
+	}
+	public void returnCreatureHand(CreatureCard c)
+	{
+		if (P1battlefield.contains(c))
+		{
+			P1.addCardToHand(c);
+			P1battlefield.remove(c);
+		}
+		if (P2battlefield.contains(c))
+		{
+			P2.addCardToHand(c);
+			P2battlefield.remove(c);
 		}
 	}
 	public ArrayList<CreatureCard> P1getAllCreatures()
@@ -69,25 +90,30 @@ public class GameObject2
 	{
 		P2battlefield.remove(index);
 	}
-	
+	//counter ++ at end step. then if creatures counter is gretaer >0 boolean can attack
+
+	//phases
 	public void setPhaseP1(int i) {
 		if (i==0)
 		{
-			p1Phase = ("Main Phase");
+			p1Phase = "Main Phase";
 		}
 		if (i==1)
 		{
-			p1Phase = ("Attack Phase");
+			p1Phase = "Attack Phase";
+			p2Phase="Block Phase";
 		}
 		if (i==2)
 		{
-			p1Phase = ("Main Phase 2");
+			p1Phase = "Main Phase 2";
 		}
 		if (i==3)
 		{
-			p1Phase = ("End Phase");
+			p1Phase = "End Phase";
 		}
 	}
+	
+	
 
 
 }
