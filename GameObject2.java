@@ -197,6 +197,8 @@ public class GameObject2
 	{
 		P1battlefield.add(c);
 		P1.discard(P1.getIndexOfCard(c));
+		if (!(c.getAbilities()==(null)))
+		{
 		if(c.getAbilities().equals("damagepercreature"))
 		{
 			this.P1loselife();
@@ -225,13 +227,15 @@ public class GameObject2
 		{
 			this.destroyAllOther(c);
 		}
-		
+		}
 		
 	}
 	public void putOnP2Battlefield(CreatureCard c)
 	{
 		P2battlefield.add(c);
 		P2.discard(P2.getIndexOfCard(c));
+		if (!(c.getAbilities()==(null)))
+		{
 		if(c.getAbilities().equals("damagepercreature"))
 		{
 			this.P2loselife();
@@ -260,7 +264,7 @@ public class GameObject2
 		{
 			this.destroyAllOther(c);
 		}
-		
+		}
 
 	}
 	
@@ -331,8 +335,8 @@ public class GameObject2
 		if (i==3)
 		{
 			p2Phase = "End Phase";
-			ArrayList<CreatureCard> p1Creatures = this.P1getAllCreatures();
-			for (CreatureCard c: p1Creatures)
+			ArrayList<CreatureCard> p2Creatures = this.P2getAllCreatures();
+			for (CreatureCard c: p2Creatures)
 			{
 				c.setCanAttack(true);
 			}
@@ -340,6 +344,14 @@ public class GameObject2
 	}
 	
 	
+public Player getP1()
+{
+	return P1;
+}
 
+public Player getP2()
+{
+	return P2;
+}
 
 }
