@@ -70,8 +70,39 @@ public class GameObject2
 			c.setTapped(true);
 		}
 	}
+	
+	
+	
+	
+	
+	public void destroyAllOther(CreatureCard c)
+	{
+		ArrayList<CreatureCard> p2Creatures = this.P2getAllCreatures();
+		ArrayList<CreatureCard> p1Creatures = this.P1getAllCreatures();
+		
+		for(int i = 0; i < P1battlefield.size(); i++)
+		{
+			
+			if(P1battlefield.get(i) instanceof CreatureCard)
+			{
+				if (c != P1battlefield.get(i))
+				{
+					P1battlefield.remove(i);
+				}
+			}
+			if(P2battlefield.get(i) instanceof CreatureCard)
+			{
+				if (c != P2battlefield.get(i))
+				{
+					P2battlefield.remove(i);
+				}
+			}
+		}
+		
+	}
 	public void returnCreatureHand(CreatureCard c)
 	{
+		
 		if (P1battlefield.contains(c))
 		{
 			P1.addCardToHand(c);
@@ -103,6 +134,34 @@ public class GameObject2
 			P2.incrementLife();
 		}
 	}
+	public void P2loselife()
+	{
+		ArrayList<CreatureCard> p2Creatures = this.P2getAllCreatures();
+		for (CreatureCard c: p2Creatures)
+		{
+			P2.incrementLife(-1);
+		}
+	}
+	public void P2drawpercreature()
+	{
+		ArrayList<CreatureCard> p2Creatures = this.P2getAllCreatures();
+		for (CreatureCard c: p2Creatures)
+		{
+			P2.draw();
+		}
+	}
+	public void P2tapopponent()
+	{
+		ArrayList<CreatureCard> p1Creatures = this.P1getAllCreatures();
+		for (CreatureCard c: p1Creatures)
+		{
+			c.setTapped(true);
+		}
+	}
+	
+	
+	
+	
 	
 	
 	
@@ -119,6 +178,8 @@ public class GameObject2
 		}
 		return creaturesOnBattlefield;
 	}
+	
+	
 	public ArrayList<CreatureCard> P2getAllCreatures()
 	{
 		ArrayList<CreatureCard> creaturesOnBattlefield = new ArrayList<CreatureCard>();

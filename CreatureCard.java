@@ -9,6 +9,7 @@ public class CreatureCard extends Card
 	private boolean canAttack;
 	private boolean isSelected;
 	private boolean isTapped;
+	private boolean canBeBlocked;
 	
 	public CreatureCard()
 	{
@@ -26,6 +27,8 @@ public class CreatureCard extends Card
 		canAttack=false;	
 		isSelected = false;
 		isTapped=false;
+		canBeBlocked=true;
+		
 		}
 	
 	public CreatureCard(String n, String c, String cInfo, int m, int p, int t, String abils)
@@ -39,10 +42,16 @@ public class CreatureCard extends Card
 		cardInfo = cInfo;
 		turnsInPlay=0;
 		isSelected = false;
+		canBeBlocked=true;
 		if (abils.equals("haste"))
 		{
 			canAttack=true;
 		}
+		if (abils.equals("cantbeblocked"))
+		{
+			canBeBlocked=false;
+		}
+		
 		isTapped=false;
 	}
 	
