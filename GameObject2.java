@@ -219,7 +219,11 @@ public class GameObject2
 		}
 		if(c.getAbilities().equals("tapopponentcreatures"))
 		{
-			this.P1plus1plus1all();
+			this.P1tapopponent();
+		}
+		if(c.getAbilities().equals("destroyothercreatures"))
+		{
+			this.destroyAllOther(c);
 		}
 		
 		
@@ -228,7 +232,36 @@ public class GameObject2
 	{
 		P2battlefield.add(c);
 		P2.discard(P2.getIndexOfCard(c));
+		if(c.getAbilities().equals("damagepercreature"))
+		{
+			this.P2loselife();
+		}
+		if(c.getAbilities().equals("gainlifepercreature"))
+		{
+			this.P2gain1all();
+		}
+//		if(c.getAbilities().equals("returncreature"))
+//		{
+//			this.returnCreatureHand(c);   NEED TO FIGURE OUT CARD SELECTED
+//		}
+		if(c.getAbilities().equals("drawpercreature"))
+		{
+			this.P2drawpercreature();
+		}
+		if(c.getAbilities().equals("+1+1percreature"))
+		{
+			this.P2plus1plus1all();
+		}
+		if(c.getAbilities().equals("tapopponentcreatures"))
+		{
+			this.P2tapopponent();
+		}
+		if(c.getAbilities().equals("destroyothercreatures"))
+		{
+			this.destroyAllOther(c);
+		}
 		
+
 	}
 	
 	public void putLandOnP1Battlefield(LandCard c)
