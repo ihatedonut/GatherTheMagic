@@ -241,7 +241,7 @@ public class GameObject2
 		return creaturesOnBattlefield;
 	}
 	
-	public void putOnP1Battlefield(Card c)
+	public void putOnP1Battlefield(CreatureCard c)
 	{
 		P1battlefield.add(c);
 		P1.discard(P1.getIndexOfCard(c));
@@ -286,7 +286,7 @@ public class GameObject2
 		
 		}
 	}
-	public void putOnP2Battlefield(Card c)
+	public void putOnP2Battlefield(CreatureCard c)
 	{
 		P2battlefield.add(c);
 		P2.discard(P2.getIndexOfCard(c));
