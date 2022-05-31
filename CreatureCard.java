@@ -138,6 +138,15 @@ public class CreatureCard extends Card
 	{
 		return isSelected;
 	}
+	public void dealDamage(int n)
+	{
+		
+	}
+	public void takeDamage(int n)
+	{
+		toughness-=n;
+		
+	}
 	
 	
 	
