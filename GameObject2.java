@@ -70,6 +70,41 @@ public class GameObject2
 			c.setTapped(true);
 		}
 	}
+		public void p1Deal3()
+	{
+		CreatureCard other = this.getAllSelectedCreatures();
+		other.takeDamage(3);
+		{
+			if (P1battlefield.contains(other))
+			{
+				P1battlefield.remove(other);
+			}
+			if (P2battlefield.contains(other))
+			{
+				P2battlefield.remove(other);
+			}
+		}
+	}
+	public void p2Deal3()
+	{
+		CreatureCard other = this.getAllSelectedCreatures();
+		other.takeDamage(3);
+		{
+			if (other.getToughness()<=0)
+			{
+				if (P1battlefield.contains(other))
+				{
+					P1battlefield.remove(other);
+				}
+				if (P2battlefield.contains(other))
+				{
+					P2battlefield.remove(other);
+				}
+			}
+		}
+	}
+	
+	
 	
 	
 	
@@ -283,7 +318,10 @@ public class GameObject2
 		{
 			this.cantBeBlocked(c);
 		}
-		
+		if(c.getAbilities().equals("3damagecreature"))
+		{
+			this.p1Deal3();
+		}
 		}
 	}
 	public void putOnP2Battlefield(CreatureCard c)
@@ -328,7 +366,10 @@ public class GameObject2
 		{
 			this.cantBeBlocked(c);
 		}
-		
+		if(c.getAbilities().equals("3damagecreature"))
+		{
+			this.p2Deal3();
+		}
 		}
 	}
 	public void destroyP1Creature(int index)
