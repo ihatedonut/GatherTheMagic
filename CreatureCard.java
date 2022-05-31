@@ -7,9 +7,6 @@ public class CreatureCard extends Card
 	private String cardInfo;
 	private int turnsInPlay;
 	private boolean canAttack;
-	private boolean isSelected;
-	private boolean isTapped;
-	private boolean canBeBlocked;
 	
 	public CreatureCard()
 	{
@@ -25,11 +22,7 @@ public class CreatureCard extends Card
 		this.setManaCost(m);
 		turnsInPlay=0;
 		canAttack=false;	
-		isSelected = false;
-		isTapped=false;
-		canBeBlocked=true;
-		
-		}
+	}
 	
 	public CreatureCard(String n, String c, String cInfo, int m, int p, int t, String abils)
 	{
@@ -41,18 +34,6 @@ public class CreatureCard extends Card
 		abilities = abils;
 		cardInfo = cInfo;
 		turnsInPlay=0;
-		isSelected = false;
-		canBeBlocked=true;
-		if (abils.equals("haste"))
-		{
-			canAttack=true;
-		}
-		if (abils.equals("cantbeblocked"))
-		{
-			canBeBlocked=false;
-		}
-		
-		isTapped=false;
 	}
 	
 	
@@ -62,18 +43,9 @@ public class CreatureCard extends Card
 		return cardInfo;
 	}
 	
-	public String getAbilities()
-	{
-		return abilities;
-	}
-	
 	public void setCardInfo(String s)
 	{
 		cardInfo = s;
-	}
-	public void setTapped(boolean f)
-	{
-		isTapped = f;
 	}
 	
 	public int getPower()
@@ -95,13 +67,6 @@ public class CreatureCard extends Card
 	{
 		toughness++;
 	}
-	public void plusOneCounter()
-	{
-		power++;
-		toughness++;
-	}
-	
-	
 	
 	public void incrementPower(int num)
 	{
@@ -129,6 +94,10 @@ public class CreatureCard extends Card
 	public void setCanAttack(boolean b)
 	{
 		canAttack = b;
+	}
+	public boolean getCanAttack()
+	{
+		return canAttack;
 	}
 	
 	

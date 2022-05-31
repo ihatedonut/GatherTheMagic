@@ -14,6 +14,10 @@ public class LandCard extends Card
 	{
 		return tapped;
 	}
+	public void setTapped(boolean b)
+	{
+		tapped = b;
+	}
 	
 	
 	

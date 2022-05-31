@@ -8,6 +8,7 @@ public class Player
 	private ArrayList<Card> graveyard;
 	private int availableMana;
 	private final int MAXHANDSIZE = 7;
+	private int landPlays;
 	
 	public Player(String color)
 	{
@@ -15,7 +16,10 @@ public class Player
 		hand = new ArrayList<Card>();
 		deck = new ArrayList<Card>();
 		this.fillDeck(color);
+		this.shuffle();
 		this.setNewHand();
+		availableMana = 0;
+		landPlays = 1;
 	
 	
 	}
@@ -50,8 +54,8 @@ public class Player
 					deck.add(new CreatureCard("Holy Berzerker","white" , 3,4,3));
 					deck.add(new CreatureCard("Holy Berzerker","white" , 3,4,3));
 					deck.add(new CreatureCard("Oath Bringer", "white", 2,2,1));
-					deck.add(new CreatureCard("Poop the Soldier","white", 0,0,1));
-					deck.add(new CreatureCard("Poop the Soldier","white", 0,0,1));
+					deck.add(new CreatureCard("Poop Soldier","white", 0,0,1));
+					deck.add(new CreatureCard("Poop Soldier","white", 0,0,1));
 					deck.add(new CreatureCard("Prophet","white",2,1,2));
 					deck.add(new CreatureCard("Big Bulging Ox","white",2,0,5));
 					deck.add(new CreatureCard("Big Bulging Ox","white",2,0,5));
@@ -270,10 +274,11 @@ public class Player
 		return hand;
 	}
 	
-	public void draw()
+	public Card draw()
 	{
-		hand.add(deck.get(0));
-		deck.remove(0);
+		Card card = deck.get(0);
+		hand.add(deck.remove(0));
+		return card;
 	}
 	
 	public void draw(int num)
@@ -385,11 +390,27 @@ public class Player
 		for (int i = 0; i < deck.size(); i++)
 		{
 			Card card1 = deck.get(i);
-			int index = (int) (Math.random() * 60);
+			int index = (int) (Math.random() * 59);
 			Card card2 = deck.get(index);
 			deck.set(index, card1);
 			deck.set(i, card2);
 		}
+	}
+	public int getLandPlays()
+	{
+		return landPlays;
+	}
+	public void setLandPlays(int num)
+	{
+		landPlays = num;
+	}
+	public void incrementLandPlays()
+	{
+		landPlays++;
+	}
+	public void decrementLandPlays()
+	{
+		landPlays--;
 	}
 	
 	

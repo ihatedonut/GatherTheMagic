@@ -45,9 +45,9 @@ public class Card
 	{
 		return isPlayable;
 	}
-	public void setPlayable()
+	public void setPlayable(boolean b)
 	{
-		
+		isPlayable = b;
 	}
 	
 
