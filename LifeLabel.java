@@ -13,14 +13,14 @@ public class LifeLabel extends JPanel
 	
 	public LifeLabel(int h)
 	{
-		this.setSize(61,41);
-		this.setLocation(21,0);
+		this.setSize(41,21);
+		this.setLocation(23,10);
 		this.setVisible(true);
 		this.setOpaque(false);
 		
 		label = new JLabel(h + "");
-		label.setFont(new Font("Dialog",Font.BOLD,20));
-		label.setLocation(5,10);
+		label.setFont(new Font("Dialog",Font.BOLD,15));
+		label.setLocation(0,0);
 		this.add(label);
 	}
 	
@@ -31,7 +31,7 @@ public class LifeLabel extends JPanel
 		
 		g2d.setColor(new Color(204, 189, 70));
 		g2d.setStroke(new BasicStroke(10));
-		g2d.fillOval(0,0,60,40);
+		g2d.fillOval(0,5,40,20);
 		
 		revalidate();
 		repaint();

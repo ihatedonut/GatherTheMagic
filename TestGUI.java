@@ -14,7 +14,6 @@ public class TestGUI extends JFrame
 	public TestGUI()
 	{
 		this.setTitle("Gather the Magic");
-		game = new GameObject2();
 		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
 		this.setSize(screen);
 		this.setLayout(null);
@@ -24,7 +23,7 @@ public class TestGUI extends JFrame
 		this.setFocusable(false);
 		this.setExtendedState(Frame.MAXIMIZED_BOTH);
 		this.setResizable(false);
-		
+		game = new GameObject2();
 		background = new Battlefield(this, game, this);
 		this.setContentPane(background);
 		
