@@ -1,5 +1,10 @@
 import java.awt.Color;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
@@ -12,7 +17,7 @@ public class BattlefieldPanel extends JLayeredPane
 	{
 		this.frame = frame;
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		this.setSize(650,150);
+		this.setSize(900,200);
 		this.setVisible(true);
 		creatures = new ArrayList<CardSleeve2>();
 	}
@@ -21,19 +26,20 @@ public class BattlefieldPanel extends JLayeredPane
 	{
 		if (creatures.size() > 0)
 		{
-			int spacer;
-			if (600 / creatures.size() > 100)
-			{
-				spacer = 100;
-			}
-			else
-			{
-				spacer = 600 / creatures.size();
-			}
+			int spacerX = 100;
 			for (int i = 0; i < creatures.size(); i++)
 			{
 				this.add(creatures.get(i), i);
-				creatures.get(i).setLocation(0 + (i * spacer), 0);
+				if (i < 9)
+				{
+					creatures.get(i).setLocation(0 + (i * spacerX), 0);
+				}
+				else
+				{
+					int extra = creatures.size() - 9;
+					int extraMinus = creatures.size() - i;
+					creatures.get(i).setLocation(0 + (spacerX * (extra - extraMinus)),100);
+				}
 			}
 		}
 		frame.repaint();
