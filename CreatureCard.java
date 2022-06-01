@@ -147,6 +147,14 @@ public class CreatureCard extends Card
 		toughness-=n;
 		
 	}
+	public void attack()
+	{
+		isAttacking = true;
+	}
+	public boolean getAttacking()
+	{
+		return isAttacking;
+	}
 	
 	
 	
