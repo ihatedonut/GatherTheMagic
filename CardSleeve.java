@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 
 public class CardSleeve extends JComponent
@@ -28,6 +29,7 @@ public class CardSleeve extends JComponent
 		this.panel = panel;
 		this.panel2 = panel2;
 		this.battlefield = battlefield;
+		this.setBorder(BorderFactory.createLineBorder(Color.black));
 		try 
 		{
 			sleeve = ImageIO.read(new File(card.getName() + ".png")).getScaledInstance(150,200,Image.SCALE_DEFAULT);
@@ -53,8 +55,16 @@ public class CardSleeve extends JComponent
 			}
 		});
 		this.addMouseListener(new MouseListener() {
-			public void mouseClicked(MouseEvent e) {
-				
+			public void mouseClicked(MouseEvent e) 
+			{
+				if (e.getButton() == MouseEvent.BUTTON3)
+				{
+					panel.showCard(getAttachedCard());
+				}
+				else
+				{
+					panel.hideCard();
+				}
 			}
 			public void mousePressed(MouseEvent e) {
 				
@@ -72,18 +82,28 @@ public class CardSleeve extends JComponent
 						if (game.getPlayer1().getLandPlays() > 0 && (game.getPhaseP1().equals("Main Phase") || game.getPhaseP1().equals("Main Phase 2") || game.getPhaseP1().equals("End Phase")))
 						{
 							panel.removeCard(getThis());
-							panel2.addLand(new CardSleeve2(attachedCard));
+							panel2.addLand(new CardSleeve2(attachedCard, panel));
 							game.getPlayer1().decrementLandPlays();
 							game.getPlayer1().incrementAvailableMana();
+							panel.arrangeCards();
+						}
+						else
+						{
+							panel.arrangeCards();
 						}
 					}
 					else if (card instanceof CreatureCard)
 					{
 						if (game.getPlayer1().getAvailableMana() >= card.getManaCost() && (game.getPhaseP1().equals("Main Phase") || game.getPhaseP1().equals("Main Phase 2") || game.getPhaseP1().equals("End Phase")))
 						{
-							battlefield.addCreature(new CardSleeve2(card));
+							battlefield.addCreature(new CardSleeve2(attachedCard, panel));
 							panel.removeCard(getThis());
 							game.getPlayer1().setAvailableMana(game.getPlayer1().getAvailableMana() - card.getManaCost());
+							panel.arrangeCards();
+						}
+						else
+						{
+							panel.arrangeCards();
 						}
 					}
 					else
@@ -130,5 +150,9 @@ public class CardSleeve extends JComponent
 	public int getLayer()
 	{
 		return panel.getLayer(this);
+	}
+	public Card getAttachedCard()
+	{
+		return attachedCard;
 	}
 }
