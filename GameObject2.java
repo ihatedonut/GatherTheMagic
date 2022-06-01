@@ -85,6 +85,21 @@ public class GameObject2
 			}
 		}
 	}
+	public ArrayList<CreatureCard> P1Attacking()
+	{
+		ArrayList<CreatureCard> a = this.P1getAllCreatures();
+		ArrayList<CreatureCard> creaturesOnBattlefieldAttacking = new ArrayList<CreatureCard>();
+		
+		for (CreatureCard c: a)
+		{
+			if(c.getAttacking())
+			{
+				 creaturesOnBattlefieldAttacking.add(c);
+			}
+		}
+		return creaturesOnBattlefieldAttacking;
+
+	}
 	public void p2Deal3()
 	{
 		CreatureCard other = this.getAllSelectedCreatures();
@@ -213,6 +228,21 @@ public class GameObject2
 		{
 			c.setTapped(true);
 		}
+	}
+	public ArrayList<CreatureCard> P2Attacking()
+	{
+		ArrayList<CreatureCard> a = this.P2getAllCreatures();
+		ArrayList<CreatureCard> creaturesOnBattlefieldAttacking = new ArrayList<CreatureCard>();
+		
+		for (CreatureCard c: a)
+		{
+			if(c.getAttacking())
+			{
+				 creaturesOnBattlefieldAttacking.add(c);
+			}
+		}
+		return creaturesOnBattlefieldAttacking;
+
 	}
 	
 	
@@ -403,6 +433,15 @@ public class GameObject2
 		if (i==1)
 		{
 			p1Phase = ("Attack Phase");
+			p2Phase="Block Phase";
+			ArrayList<CreatureCard> p1Creatures = this.P1getAllCreatures();
+			for (CreatureCard c: p1Creatures)
+			{
+				if(c.isSelected())
+				{
+					 c.attack();
+				}
+			}
 		}
 		if (i==2)
 		{
@@ -427,6 +466,12 @@ public class GameObject2
 		{
 			p2Phase = "Attack Phase";
 			p1Phase="Block Phase";
+			ArrayList<CreatureCard> p2Creatures = this.P2getAllCreatures();
+				for (CreatureCard c: p2Creatures)
+				{
+					c.setCanAttack(true);
+				}
+			
 		}
 		if (i==2)
 		{
