@@ -95,6 +95,7 @@ public class GameObject2
 			if(c.getAttacking())
 			{
 				 creaturesOnBattlefieldAttacking.add(c);
+				c.setTapped(true);
 			}
 		}
 		return creaturesOnBattlefieldAttacking;
@@ -239,6 +240,7 @@ public class GameObject2
 			if(c.getAttacking())
 			{
 				 creaturesOnBattlefieldAttacking.add(c);
+				c.setTapped(true);
 			}
 		}
 		return creaturesOnBattlefieldAttacking;
