@@ -138,6 +138,10 @@ public class CreatureCard extends Card
 	{
 		return isSelected;
 	}
+	public void setSelected(boolean n)
+	{
+		isSelected = n;
+	}
 	public void dealDamage(int n)
 	{
 		
