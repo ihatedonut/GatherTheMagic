@@ -457,6 +457,14 @@ public class GameObject2
 				{
 					c.setCanAttack(true);
 				}
+			if (P1.getHand().size()>7)
+				{
+					for (int x=7; x<P1.getHand().size(); x++)
+					{
+						int random = (int) Math.random() * P1.getHand().size();
+						P1.discard(random);
+					}
+				}
 		}
 	}
 	public void setPhaseP2(int i) {
@@ -486,6 +494,14 @@ public class GameObject2
 			for (CreatureCard c: p2Creatures)
 			{
 				c.setCanAttack(true);
+			}
+			if (P2.getHand().size()>7)
+			{
+				for (int x=7; x<P2.getHand().size(); x++)
+				{
+					int random = (int) Math.random() * P2.getHand().size();
+					P2.discard(random);
+				}
 			}
 		}
 	}
