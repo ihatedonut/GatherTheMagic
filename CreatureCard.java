@@ -10,6 +10,7 @@ public class CreatureCard extends Card
 	private boolean isSelected;
 	private boolean isTapped;
 	private boolean canBeBlocked;
+	private boolean isAttacking;
 	
 	public CreatureCard()
 	{
