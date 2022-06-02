@@ -21,9 +21,11 @@ public class CardSleeve extends JComponent
 	private Card attachedCard;
 	private GameObject2 game;
 	private BattlefieldPanel battlefield;
+	private Client c;
 	
-	public CardSleeve(HandPanel panel, LandPanel panel2, Card card, GameObject2 game, BattlefieldPanel battlefield)
+	public CardSleeve(HandPanel panel, LandPanel panel2, Card card, GameObject2 game, BattlefieldPanel battlefield, Client c)
 	{
+		this.c = c;
 		this.game = game;
 		attachedCard = card;
 		this.panel = panel;
@@ -79,7 +81,7 @@ public class CardSleeve extends JComponent
 				{
 					if (card instanceof LandCard)
 					{
-						if (game.getPlayer1().getLandPlays() > 0 && (game.getPhaseP1().equals("Main Phase") || game.getPhaseP1().equals("Main Phase 2") || game.getPhaseP1().equals("End Phase")))
+						if (game.getP1Turn() && game.getPlayer1().getLandPlays() > 0 && (game.getPhaseP1().equals("Main Phase") || game.getPhaseP1().equals("Main Phase 2") || game.getPhaseP1().equals("End Phase")))
 						{
 							panel.removeCard(getThis());
 							panel2.addLand(new CardSleeve2(attachedCard, panel));
@@ -94,12 +96,13 @@ public class CardSleeve extends JComponent
 					}
 					else if (card instanceof CreatureCard)
 					{
-						if (game.getPlayer1().getAvailableMana() >= card.getManaCost() && (game.getPhaseP1().equals("Main Phase") || game.getPhaseP1().equals("Main Phase 2") || game.getPhaseP1().equals("End Phase")))
+						if (game.getP1Turn() && game.getPlayer1().getAvailableMana() >= card.getManaCost() && (game.getPhaseP1().equals("Main Phase") || game.getPhaseP1().equals("Main Phase 2") || game.getPhaseP1().equals("End Phase")))
 						{
 							battlefield.addCreature(new CardSleeve2(attachedCard, panel));
 							panel.removeCard(getThis());
 							game.getPlayer1().setAvailableMana(game.getPlayer1().getAvailableMana() - card.getManaCost());
 							panel.arrangeCards();
+							c.sendMessage("cardplayed-" + attachedCard.getName());
 						}
 						else
 						{
