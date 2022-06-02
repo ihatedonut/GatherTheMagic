@@ -14,14 +14,15 @@ public class ClientHandler implements Runnable
 	private BufferedWriter bufferedWriter;
 	private String clientUsername;
 	
-	public ClientHandler(Socket socket)
+	public ClientHandler(Socket socket, String username)
 	{
 		try 
 		{
 			this.socket = socket;
 			this.bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 			this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			this.clientUsername = bufferedReader.readLine();
+			this.clientUsername = username;
+			System.out.println(clientUsername);
 			clientHandlers.add(this);
 			broadcastMessage("SERVER: " + clientUsername + " has connected");
 			

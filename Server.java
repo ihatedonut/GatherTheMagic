@@ -5,10 +5,14 @@ import java.net.Socket;
 public class Server 
 {
 	private ServerSocket serverSocket;
+	private int numClients;
+	private int startingPlayer;
 	
 	public Server(ServerSocket serverSocket)
 	{
 		this.serverSocket = serverSocket;
+		startingPlayer = (int)(Math.random()*2 + 1);
+		numClients = 0;
 	}
 	
 	public void startServer()
@@ -17,18 +21,19 @@ public class Server
 		{
 			while(!(serverSocket.isClosed()))
 			{
-				Socket socket = serverSocket.accept();
-				System.out.println("New client connected!");
-				
-				ClientHandler clientHandler = new ClientHandler(socket);
-				Thread thread = new Thread(clientHandler);
-				thread.start();
+				if (numClients < 2)
+				{
+					Socket socket = serverSocket.accept();
+					numClients++;
+					System.out.println("New client connected!");
+					ClientHandler clientHandler = new ClientHandler(socket, "Client" + numClients);
+					Thread thread = new Thread(clientHandler);
+					thread.start();
+				}
 			}
 		}
 		catch (IOException e)
-		{
-			
-		}
+		{}
 	}
 	
 	public void closeServerSocket()

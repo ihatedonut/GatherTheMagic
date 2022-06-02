@@ -49,6 +49,20 @@ public class Client
 		}
 	}
 	
+	public void sendMessage(String messageToSend)
+	{
+		try
+		{
+			bufferedWriter.write(messageToSend);
+			bufferedWriter.newLine();
+			bufferedWriter.flush();
+		}
+		catch (IOException e)
+		{
+			closeEverything(socket, bufferedReader, bufferedWriter);
+		}
+	}
+	
 	public void listenForMessages()
 	{
 		new Thread(new Runnable() {
@@ -62,6 +76,10 @@ public class Client
 					try
 					{
 						message = bufferedReader.readLine();
+						if (message != null)
+						{
+							game.decoder(message);
+						}
 						System.out.println(message);
 					}
 					catch (IOException e)
