@@ -20,7 +20,7 @@ public class HandPanel extends JLayeredPane
 	private CardSleeve3 shownCard;
 	private boolean inPanel;
 	
-	public HandPanel(TestGUI frame, GameObject2 game, Battlefield battlefield, BattlefieldPanel batPanel)
+	public HandPanel(TestGUI frame, GameObject2 game, Battlefield battlefield, BattlefieldPanel batPanel,Client c)
 	{
 		this.battlefield = battlefield;
 		this.batPanel = batPanel;
@@ -33,7 +33,7 @@ public class HandPanel extends JLayeredPane
 		hand = new ArrayList<CardSleeve>();
 		for (int i = 0; i < 7; i++)
 		{
-			hand.add(new CardSleeve(this, battlefield.getLandPanel(), game.getPlayer1().getHand().get(i), game, batPanel));
+			hand.add(new CardSleeve(this, battlefield.getLandPanel(), game.getPlayer1().getHand().get(i), game, batPanel,c));
 		}
 		this.arrangeCards();
 		

@@ -10,7 +10,7 @@ import javax.swing.*;
 public class TestGUI extends JFrame
 {
 	private GameObject2 game;
-	private static Battlefield background;
+	private Battlefield background;
 	private Client c;
 
 	public TestGUI(Client c)
@@ -27,14 +27,29 @@ public class TestGUI extends JFrame
 		this.setExtendedState(Frame.MAXIMIZED_BOTH);
 		this.setResizable(false);
 		
-		game = new GameObject2();
+		game = new GameObject2(background);
+		background = new Battlefield(this, game, this, c);
+		
+		
+		
 		DeckSelection deckSelect = new DeckSelection();
 		deckSelect.setLocation(0,0);
 		this.add(deckSelect);
 
+		boolean deckSelectLoop = true;
+		while (deckSelectLoop)
+		{
+			if (deckSelect.getDeckSelected())
+			{
+				game.getPlayer1().fillDeck(deckSelect.getDeckColor());
+				deckSelectLoop = false;
+				this.remove(deckSelect);
+				this.repaint();
+			}
+			this.repaint();
+		}
 		
-		background = new Battlefield(this, game, this);
-		this.setContentPane(background);
+		this.add(background);
 		
 		this.addMouseListener(new MouseListener() {
 			public void mouseClicked(MouseEvent e) 
@@ -54,9 +69,10 @@ public class TestGUI extends JFrame
 			}
 			
 		});
+		this.repaint();
 	}
 	
-	public static Battlefield getBattlefield()
+	public Battlefield getBattlefield()
 	{
 		return background;
 	}
@@ -64,6 +80,21 @@ public class TestGUI extends JFrame
 	public GameObject2 getGame()
 	{
 		return game;
+	}
+	
+	public void decoder(String message)
+	{
+		if (message.equals("Not your turn"))
+		{
+			game.setP1Turn(false);
+		}
+		if (message.indexOf("cardplayed") != -1)
+		{
+			int hyphon = message.indexOf("-");
+			String cardName = message.substring(hyphon + 1);
+			
+			background.getBatPanel2().addCreature(new CardSleeve2(game.getPlayer1().cardLookup(cardName), background.getHandPanel()));
+		}
 	}
 	
 	

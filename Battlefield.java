@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -17,16 +18,17 @@ public class Battlefield extends JPanel
 	private TurnButton turnButton;
 	private int phaseCount = 0;
 	private GameObject2 game;
-	private Library libButton;
 	private JFrame frame;
 	private PhaseLabel phaseLabel;
 	private NextPhaseLabel nextPhaseLabel;
 	private LandPanel landPanel;
 	private HandPanel handPanel;
 	private BattlefieldPanel batPanel;
+	private BattlefieldPanel batPanel2;
+	private Client c;
 	
 	
-	public Battlefield(JFrame frame, GameObject2 game, TestGUI gui)
+	public Battlefield(JFrame frame, GameObject2 game, TestGUI gui, Client c)
 	{
 		this.game = game;
 		this.frame = frame;
@@ -46,14 +48,18 @@ public class Battlefield extends JPanel
 		landPanel = new LandPanel(gui);
 		
 		batPanel = new BattlefieldPanel(gui);
-		batPanel.setLocation(450,400);
+		batPanel.setLocation(200,350);
 		
-		handPanel = new HandPanel(gui, game, this, batPanel);
+		batPanel2 = new BattlefieldPanel(gui);
+		batPanel2.setLocation(200,100);
+		
+		handPanel = new HandPanel(gui, game, this, batPanel, c);
 		this.add(handPanel);
 		
 		this.add(landPanel);
 		
 		this.add(batPanel);
+		this.add(batPanel2);
 		char1 = new CharacterPortrait(game.getPlayer1().getLife());
 		char2 = new CharacterPortrait(game.getPlayer2().getLife());
 		
@@ -67,10 +73,6 @@ public class Battlefield extends JPanel
 		turnButton.setLocation(1200,630);
 		this.add(turnButton);
 		
-		libButton = new Library(frame);
-		libButton.setLocation(100,590);
-		this.add(libButton);
-		
 		phaseLabel = new PhaseLabel();
 		phaseLabel.setLocation(1190,600);
 		this.add(phaseLabel);
@@ -80,6 +82,7 @@ public class Battlefield extends JPanel
 		this.add(nextPhaseLabel);
 		
 		turnButton.addActionListener(new ActionListener() {
+			private int count = 0;
 			public void actionPerformed(ActionEvent e)
 			{
 				game.setPhaseP1(phaseCount);
@@ -87,11 +90,12 @@ public class Battlefield extends JPanel
 				nextPhaseLabel.setNextPhase(game.getPhaseP1());
 				turnButton.changePhaseImage(game.getPhaseP1());
 				phaseCount++;
-				if (game.getPhaseP1() == "Main Phase")
+				if (game.getPhaseP1() == "Main Phase" && count != 0)
 				{
-					handPanel.addCard(new CardSleeve(handPanel, landPanel, game.getPlayer1().draw(), game, batPanel));
+					handPanel.addCard(new CardSleeve(handPanel, landPanel, game.getPlayer1().draw(), game, batPanel, c));
 					game.getPlayer1().setAvailableMana(landPanel.getNumLands());
 				}
+				count++;
 				
 			if (phaseCount==4)
 			{
@@ -118,6 +122,18 @@ public class Battlefield extends JPanel
 	public LandPanel getLandPanel()
 	{
 		return landPanel;
+	}
+	public BattlefieldPanel getBatPanel1()
+	{
+		return batPanel;
+	}
+	public BattlefieldPanel getBatPanel2()
+	{
+		return batPanel2;
+	}
+	public JButton getTurnButton()
+	{
+		return turnButton;
 	}
 		
 
