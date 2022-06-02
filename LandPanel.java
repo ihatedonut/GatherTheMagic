@@ -14,8 +14,8 @@ public class LandPanel extends JLayeredPane
 		this.frame = frame;
 		lands = new ArrayList<CardSleeve2>();
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		this.setSize(450,150);
-		this.setLocation(10,425);
+		this.setSize(500,150);
+		this.setLocation(10,575);
 		this.arrangeLands();
 	}
 	
