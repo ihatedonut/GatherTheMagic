@@ -18,7 +18,7 @@ public class GameObject2
 		P1 = new Player();
 		P2 = new Player();
 		this.setPhaseP1(0);
-		p1Turn = true;
+		p1Turn = false;
 
 	}
 	
@@ -104,6 +104,10 @@ public class GameObject2
 	public boolean getP1Turn()
 	{
 		return p1Turn;
+	}
+	public void setP1Turn(boolean b)
+	{
+		p1Turn = b;
 	}
 
 
