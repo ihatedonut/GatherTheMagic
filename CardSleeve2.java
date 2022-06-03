@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -14,8 +15,11 @@ public class CardSleeve2 extends JComponent
 	private Image sleeve;
 	private Card attachedCard;
 	private Graphics g;
+	private TappedImage tappedImage;
 	public CardSleeve2(Card c, HandPanel panel)
 	{
+		this.setLayout(null);
+		tappedImage = new TappedImage();
 		attachedCard = c;
 		try
 		{
@@ -58,11 +62,43 @@ public class CardSleeve2 extends JComponent
 		this.g = g.create();
 		super.paintComponent(g);
 		g.drawImage(sleeve,0,0,null);
+		Graphics2D g2d = (Graphics2D) g;
 		if (attachedCard instanceof CreatureCard)
 		{
 			g.setFont(new Font("Dialog",Font.PLAIN,10));
+			g2d.setColor(new Color(232, 237, 232));
+			g2d.fillRect(67,87,30,10);
 			g.setColor(new Color(10,2,3));
-			g.drawString(((CreatureCard) attachedCard).getPower() + "/" + ((CreatureCard) attachedCard).getToughness(),this.getWidth() - ((this.getWidth() / 100) * 24) , this.getHeight() - ((this.getHeight() / 100) * 7));
+			g.drawString(((CreatureCard) attachedCard).getPower() + "/" + ((CreatureCard) attachedCard).getToughness(),76,95);
+			if (((CreatureCard) attachedCard).getTapped())
+			{
+				this.add(tappedImage);
+			}
+			else
+			{
+				try
+				{
+					this.remove(tappedImage);
+				}
+				catch (Exception e)
+				{}
+			}
+		}
+		else
+		{
+			if (((LandCard)attachedCard).getTapped())
+			{
+				this.add(tappedImage);
+			}
+			else
+			{
+				try
+				{
+					this.remove(tappedImage);
+				}
+				catch (Exception e)
+				{}
+			}
 		}
 	}
 	

@@ -1,3 +1,5 @@
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -26,10 +28,15 @@ public class Battlefield extends JPanel
 	private BattlefieldPanel batPanel;
 	private BattlefieldPanel batPanel2;
 	private Client c;
+	private int turnCount;
+	private JLabel turnCountLabel;
+	private boolean startingReceived;
 	
 	
 	public Battlefield(JFrame frame, GameObject2 game, TestGUI gui, Client c)
 	{
+		startingReceived = false;
+		turnCount = 1;
 		this.game = game;
 		this.frame = frame;
 		
@@ -69,9 +76,17 @@ public class Battlefield extends JPanel
 		char2.setLocation(100,60);
 		this.add(char2);
 		
+		turnCountLabel = new JLabel("Turn " + turnCount);
+		turnCountLabel.setFont(new Font("Dialog",Font.BOLD,15));
+		turnCountLabel.setSize(100,30);
+		turnCountLabel.setLocation(1280,40);
+		turnCountLabel.setForeground(Color.white);
+		this.add(turnCountLabel);
+		
 		turnButton = new TurnButton();
 		turnButton.setLocation(1200,630);
 		this.add(turnButton);
+		turnButton.setEnabled(false);
 		
 		phaseLabel = new PhaseLabel();
 		phaseLabel.setLocation(1190,600);
@@ -85,14 +100,27 @@ public class Battlefield extends JPanel
 			private int count = 0;
 			public void actionPerformed(ActionEvent e)
 			{
+				if (game.getPhaseP1().equals("End Phase"))
+				{
+					game.setP1Turn(false);
+					turnButton.setEnabled(false);
+					if (turnCount > 1)
+					{
+						c.sendMessage("Your Turn");
+					}
+					else
+					{
+						c.sendMessage("Your Turn - Starting Turn");
+					}
+					turnCount++;
+				}
 				game.setPhaseP1(phaseCount);
 				phaseLabel.changePhase(game.getPhaseP1());
 				nextPhaseLabel.setNextPhase(game.getPhaseP1());
 				turnButton.changePhaseImage(game.getPhaseP1());
 				phaseCount++;
-				if (game.getPhaseP1() == "Main Phase" && count != 0)
+				if (game.getPhaseP1().equals("Main Phase") && count != 0)
 				{
-					handPanel.addCard(new CardSleeve(handPanel, landPanel, game.getPlayer1().draw(), game, batPanel, c));
 					game.getPlayer1().setAvailableMana(landPanel.getNumLands());
 				}
 				count++;
@@ -134,6 +162,29 @@ public class Battlefield extends JPanel
 	public JButton getTurnButton()
 	{
 		return turnButton;
+	}
+	
+	public int getTurnCount()
+	{
+		return turnCount;
+	}
+	public void incrementTurnCount()
+	{
+		turnCount++;
+		turnCountLabel.setText("Turn " + turnCount);
+		this.repaint();
+	}
+	public JLabel getTurnCountLabel()
+	{
+		return turnCountLabel;
+	}
+	public boolean getStartingReceived()
+	{
+		return startingReceived;
+	}
+	public void setStartingReceived(boolean b)
+	{
+		startingReceived = b;
 	}
 		
 

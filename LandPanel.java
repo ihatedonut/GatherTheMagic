@@ -47,4 +47,8 @@ public class LandPanel extends JLayeredPane
 	{
 		return lands.size();
 	}
+	public ArrayList<CardSleeve2> getLandCards()
+	{
+		return lands;
+	}
 }

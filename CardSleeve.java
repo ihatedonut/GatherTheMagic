@@ -38,7 +38,7 @@ public class CardSleeve extends JComponent
 		} 
 		catch (IOException e) 
 		{
-			System.out.println("Error - Image not Found");
+			System.out.println("Error - Image not Found" + card.getName());
 		}
 		
 		this.setSize(150,200);
@@ -103,6 +103,11 @@ public class CardSleeve extends JComponent
 							game.getPlayer1().setAvailableMana(game.getPlayer1().getAvailableMana() - card.getManaCost());
 							panel.arrangeCards();
 							c.sendMessage("cardplayed-" + attachedCard.getName());
+							for (int i = 0; i < card.getManaCost(); i++)
+							{
+								((LandCard) panel2.getLandCards().get(i).getAttachedCard()).setTapped(true);
+							}
+							panel2.arrangeLands();
 						}
 						else
 						{

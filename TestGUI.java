@@ -27,8 +27,7 @@ public class TestGUI extends JFrame
 		this.setExtendedState(Frame.MAXIMIZED_BOTH);
 		this.setResizable(false);
 		
-		game = new GameObject2(background);
-		background = new Battlefield(this, game, this, c);
+		game = new GameObject2();
 		
 		
 		
@@ -48,6 +47,8 @@ public class TestGUI extends JFrame
 			}
 			this.repaint();
 		}
+		
+		background = new Battlefield(this, game, this, c);
 		
 		this.add(background);
 		
@@ -84,16 +85,37 @@ public class TestGUI extends JFrame
 	
 	public void decoder(String message)
 	{
-		if (message.equals("Not your turn"))
-		{
-			game.setP1Turn(false);
-		}
 		if (message.indexOf("cardplayed") != -1)
 		{
 			int hyphon = message.indexOf("-");
 			String cardName = message.substring(hyphon + 1);
 			
 			background.getBatPanel2().addCreature(new CardSleeve2(game.getPlayer1().cardLookup(cardName), background.getHandPanel()));
+		}
+		else if (message.indexOf("Your Turn") != -1)
+		{
+			if (message.indexOf("Starting Turn") == -1)
+			{
+				background.getHandPanel().addCard(new CardSleeve(background.getHandPanel(), background.getLandPanel(), game.getPlayer1().draw(), game, background.getBatPanel1(), c));
+				background.incrementTurnCount();
+			}
+			else if (message.indexOf("Starting Turn") != -1 && background.getStartingReceived())
+			{
+				background.getHandPanel().addCard(new CardSleeve(background.getHandPanel(), background.getLandPanel(), game.getPlayer1().draw(), game, background.getBatPanel1(), c));
+			}
+			else
+			{
+				background.setStartingReceived(true);
+			}
+			background.getTurnButton().setEnabled(true);
+			game.setP1Turn(true);
+			for (int i = 0; i < background.getLandPanel().getLandCards().size(); i++)
+			{
+				((LandCard) background.getLandPanel().getLandCards().get(i).getAttachedCard()).setTapped(false);
+			}
+			JOptionPane.showMessageDialog(null,"It's your turn, mothertrucker","Turn Change",JOptionPane.INFORMATION_MESSAGE);
+			background.getHandPanel().arrangeCards();
+			this.repaint();
 		}
 	}
 	
