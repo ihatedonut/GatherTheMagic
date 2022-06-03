@@ -14,7 +14,7 @@ public class ClientHandler implements Runnable
 	private BufferedWriter bufferedWriter;
 	private String clientUsername;
 	
-	public ClientHandler(Socket socket, String username)
+	public ClientHandler(Socket socket, String username, boolean b)
 	{
 		try 
 		{
@@ -25,6 +25,10 @@ public class ClientHandler implements Runnable
 			System.out.println(clientUsername);
 			clientHandlers.add(this);
 			broadcastMessage("SERVER: " + clientUsername + " has connected");
+			if (b)
+			{
+				broadcastToSelf("Your Turn - Starting Turn");
+			}
 			
 		}
 		catch (IOException e)
@@ -61,6 +65,25 @@ public class ClientHandler implements Runnable
 			try
 			{
 				if (!(clientHandler.clientUsername.equals(clientUsername)))
+				{
+					clientHandler.bufferedWriter.write(messageToSend);
+					clientHandler.bufferedWriter.newLine();
+					clientHandler.bufferedWriter.flush();
+				}
+			}
+			catch (IOException e)
+			{
+				closeEverything(socket, bufferedReader, bufferedWriter);
+			}
+		}
+	}
+	public void broadcastToSelf(String messageToSend)
+	{
+		for (ClientHandler clientHandler : clientHandlers)
+		{
+			try
+			{
+				if (clientHandler.clientUsername.equals(clientUsername))
 				{
 					clientHandler.bufferedWriter.write(messageToSend);
 					clientHandler.bufferedWriter.newLine();

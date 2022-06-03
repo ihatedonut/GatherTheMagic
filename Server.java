@@ -26,7 +26,15 @@ public class Server
 					Socket socket = serverSocket.accept();
 					numClients++;
 					System.out.println("New client connected!");
-					ClientHandler clientHandler = new ClientHandler(socket, "Client" + numClients);
+					ClientHandler clientHandler;
+					if (numClients == startingPlayer)
+					{
+						clientHandler = new ClientHandler(socket, "Client" + numClients, true);
+					}
+					else
+					{
+						clientHandler = new ClientHandler(socket, "Client" + numClients, false);
+					}
 					Thread thread = new Thread(clientHandler);
 					thread.start();
 				}
@@ -53,7 +61,7 @@ public class Server
 	
 	public static void main(String[] args) throws IOException
 	{
-		ServerSocket serverSocket = new ServerSocket(1234);
+		ServerSocket serverSocket = new ServerSocket(5000);
 		Server server = new Server(serverSocket);
 		server.startServer();
 	}

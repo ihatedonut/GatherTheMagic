@@ -11,7 +11,6 @@ public class Client
 	private BufferedReader bufferedReader;
 	private BufferedWriter bufferedWriter;
 	private Socket socket;
-	private String username;
 	private TestGUI game;
 	
 	public Client(Socket socket)
@@ -20,7 +19,6 @@ public class Client
 		try
 		{
 			this.socket = socket;
-			this.username = username;
 			this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			this.bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 		}
@@ -78,9 +76,9 @@ public class Client
 						message = bufferedReader.readLine();
 						if (message != null)
 						{
+							System.out.println(message);
 							game.decoder(message);
 						}
-						System.out.println(message);
 					}
 					catch (IOException e)
 					{
@@ -116,7 +114,7 @@ public class Client
 	
 	public static void main(String[] args) throws IOException
 	{
-		Socket socket = new Socket("127.0.0.1",1234);
+		Socket socket = new Socket("127.0.0.1",5000);
 		Client client = new Client(socket);
 		client.listenForMessages();
 		client.sendMessage();
