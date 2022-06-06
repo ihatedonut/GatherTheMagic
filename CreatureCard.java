@@ -22,7 +22,8 @@ public class CreatureCard extends Card
 		this.setColor(c);
 		this.setManaCost(m);
 		turnsInPlay=0;
-		canAttack=false;	
+		canAttack=false;
+		tapped = false;
 	}
 	
 	public CreatureCard(String n, String c, String cInfo, int m, int p, int t, String abils)
@@ -35,6 +36,7 @@ public class CreatureCard extends Card
 		abilities = abils;
 		cardInfo = cInfo;
 		turnsInPlay=0;
+		tapped = false;
 	}
 	
 	
@@ -108,7 +110,10 @@ public class CreatureCard extends Card
 	{
 		return tapped;
 	}
-	
+	public String getAbilities()
+	{
+		return abilities;
+	}
 	
 	
 }

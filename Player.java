@@ -128,8 +128,8 @@ public class Player
 		allCards.add(new CreatureCard("Wooden Elf", "green", 4, 3, 2));
 		allCards.add(new CreatureCard("Treegoing Serpent", "green", 3, 2, 4));
 		allCards.add(new CreatureCard("Treegoing Serpent", "green", 3, 2, 4));
-		allCards.add(new CreatureCard("Tunnelling Miner", "green", "Tunnelling Miner can't be blocked.", 4, 1, 1, "cantbeblocked"));
-		allCards.add(new CreatureCard("Tunnelling Miner", "green", "Tunnelling Miner can't be blocked.", 4, 1, 1, "cantbeblocked"));
+		allCards.add(new CreatureCard("Tunneling Miner", "green", "Tunnelling Miner can't be blocked.", 4, 1, 1, "cantbeblocked"));
+		allCards.add(new CreatureCard("Tunneling Miner", "green", "Tunnelling Miner can't be blocked.", 4, 1, 1, "cantbeblocked"));
 		allCards.add(new CreatureCard("Trampling Bear-Fox", "green", 6, 8, 8));
 		allCards.add(new CreatureCard("Trampling Bear-Fox", "green", 6, 8, 8));
 		allCards.add(new CreatureCard("Spider Spawn", "green", 2, 1, 3));
@@ -183,7 +183,7 @@ public class Player
 		allCards.add(new CreatureCard("Angrath's Ambusher","black",3,2,3));
 		allCards.add(new CreatureCard("Thornmantle Striker","black",4,4,3));
 		allCards.add(new CreatureCard("Bloodsworn Squire","black",4,3,3));
-		allCards.add(new CreatureCard("Bloodhunter Bat","When Bloodhunter Bat enters the battlefield, draw 1 card.","black",4,2,2,"draw"));
+		allCards.add(new CreatureCard("Bloodhunter Bat","When Bloodhunter Bat enters the battlefield, draw a card.","black",4,2,2,"draw3"));
 		allCards.add(new CreatureCard("Anointed Deacon","black",5,5,3));
 		allCards.add(new CreatureCard("Silent Knife","black",5,8,2));
 		allCards.add(new CreatureCard("Silent Knife","black",5,8,2));
@@ -341,8 +341,8 @@ public class Player
 					deck.add(new CreatureCard("Wooden Elf", "green", 4, 3, 2));
 					deck.add(new CreatureCard("Treegoing Serpent", "green", 3, 2, 4));
 					deck.add(new CreatureCard("Treegoing Serpent", "green", 3, 2, 4));
-					deck.add(new CreatureCard("Tunnelling Miner", "green", "Tunnelling Miner can't be blocked.", 4, 1, 1, "cantbeblocked"));
-					deck.add(new CreatureCard("Tunnelling Miner", "green", "Tunnelling Miner can't be blocked.", 4, 1, 1, "cantbeblocked"));
+					deck.add(new CreatureCard("Tunneling Miner", "green", "Tunnelling Miner can't be blocked.", 4, 1, 1, "cantbeblocked"));
+					deck.add(new CreatureCard("Tunneling Miner", "green", "Tunnelling Miner can't be blocked.", 4, 1, 1, "cantbeblocked"));
 					deck.add(new CreatureCard("Trampling Bear-Fox", "green", 6, 8, 8));
 					deck.add(new CreatureCard("Trampling Bear-Fox", "green", 6, 8, 8));
 					deck.add(new CreatureCard("Spider Spawn", "green", 2, 1, 3));
@@ -412,7 +412,7 @@ public class Player
 					deck.add(new CreatureCard("Dark Commander","When Dark Commander enters the battlfield, put a +1/+1 counter on all creature cards.","black",5,2,2,"p1p1"));
 					deck.add(new CreatureCard("Dark Commander","When Dark Commander enters the battlfield, put a +1/+1 counter on all creature cards.","black",5,2,2,"p1p1"));
 					deck.add(new CreatureCard("Baleful Beholder","black",6,6,5));
-					deck.add(new CreatureCard("Asmodeus the Archfiend","When Asmodeus the Archfiend enters the battlefield, draw a card.","black",7,6,6,"draw"));
+					deck.add(new CreatureCard("Asmodeus the Archfiend","When Asmodeus the Archfiend enters the battlefield, draw a card.","black",7,6,6,"draw3"));
 					deck.add(new CreatureCard("Bogstomper","black",6,7,6));
 					deck.add(new CreatureCard("Void Beckoner","black",8,8,8));
 				}
@@ -554,6 +554,15 @@ public class Player
 	{
 		life += num;
 	}
+	public void decrementLife()
+	{
+		life--;
+	}
+	public void decrementLife(int num)
+	{
+		life -= num;
+	}
+	
 	
 	public void addCardToHand(Card c)
 	{

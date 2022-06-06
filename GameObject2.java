@@ -77,8 +77,6 @@ public class GameObject2
 		if (i==0)
 		{
 			p1Phase = ("Main Phase");
-			P1.setLandPlays(1);
-			
 		}
 		if (i==1)
 		{
@@ -86,9 +84,13 @@ public class GameObject2
 		}
 		if (i==2)
 		{
-			p1Phase = ("Main Phase 2");
+			p1Phase = ("Block Phase");
 		}
 		if (i==3)
+		{
+			p1Phase = ("Main Phase 2");
+		}
+		if (i==4)
 		{
 			p1Phase = ("End Phase");
 		}

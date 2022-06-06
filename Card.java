@@ -4,6 +4,7 @@ public class Card
 	private String color;
 	private int manacost;
 	private boolean isPlayable;
+	private boolean isSelected;
 	
 	public Card()
 	{
@@ -48,6 +49,14 @@ public class Card
 	public void setPlayable(boolean b)
 	{
 		isPlayable = b;
+	}
+	public void setSelected(boolean b)
+	{
+		isSelected = b;
+	}
+	public boolean getSelected()
+	{
+		return isSelected;
 	}
 	
 
