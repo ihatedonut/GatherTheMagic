@@ -156,6 +156,35 @@ public class Battlefield extends JPanel
 					nextPhaseLabel.setNextPhase(game.getPhaseP1());
 					turnButton.changePhaseImage(game.getPhaseP1());
 					
+					for (int i = batPanel.getCreatures().size() - 1; i >= 0;i--)
+					{
+						if (batPanel.getCreatures().get(i).getBlockingCard() != null)
+						{
+							Card blocker = batPanel.getCreatures().get(i).getAttachedCard();
+							Card attacker = batPanel.getCreatures().get(i).getBlockingCard().getAttachedCard();
+							
+							CardSleeve2 blockerCard = batPanel.getCreatures().get(i);
+							CardSleeve2 attackerCard = batPanel.getCreatures().get(i).getBlockingCard();
+							
+							if (((CreatureCard)blocker).getPower() >= ((CreatureCard)attacker).getToughness())
+							{
+								System.out.println("Blocker " + ((CreatureCard)blocker).getPower() + " killed attacker " + ((CreatureCard)attacker).getToughness());
+								batPanel2.removeCreature(attackerCard);
+							}
+							else
+							{
+								((CreatureCard)attacker).setTapped(true);
+								attackerCard.setAttacking(false);
+							}
+							if (((CreatureCard)attacker).getPower() >= ((CreatureCard)blocker).getToughness())
+							{
+								System.out.println("Attacker " + ((CreatureCard)attacker).getPower() + " killed blocker " + ((CreatureCard)blocker).getToughness());
+								batPanel.removeCreature(blockerCard);
+							}
+						}
+					}
+					
+					
 					for (int i = 0; i < batPanel.getCreatures().size(); i++)
 					{
 						

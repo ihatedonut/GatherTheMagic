@@ -80,8 +80,8 @@ public class Player
 		allCards.add(new CreatureCard("Big Ass Wall","blue",5,0,12));
 		allCards.add(new CreatureCard("Rapid Swinger","blue",4,6,2));
 		allCards.add(new CreatureCard("Dubious Carp","blue",3,3,5));
-		allCards.add(new CreatureCard("The Moon's Vengence","blue",8,6,12));
-		allCards.add(new CreatureCard("The Moon's Vengence","blue",8,6,12));
+		allCards.add(new CreatureCard("The Moon's Vengeance","blue",8,6,12));
+		allCards.add(new CreatureCard("The Moon's Vengeance","blue",8,6,12));
 		allCards.add(new CreatureCard("Ormos, Archive Keeper","blue",6,5,5));
 		allCards.add(new CreatureCard("Phantom Carraige","When Phantom Carraige enters the battlefield, draw a card.","blue",4,3,3,"draw"));
 		allCards.add(new CreatureCard("Rapid Swinger","blue",4,6,2));	
@@ -279,8 +279,8 @@ public class Player
 					deck.add(new CreatureCard("Big Ass Wall","blue",5,0,12));
 					deck.add(new CreatureCard("Rapid Swinger","blue",4,6,2));
 					deck.add(new CreatureCard("Dubious Carp","blue",3,3,5));
-					deck.add(new CreatureCard("The Moon's Vengence","blue",8,6,12));
-					deck.add(new CreatureCard("The Moon's Vengence","blue",8,6,12));
+					deck.add(new CreatureCard("The Moon's Vengeance","blue",8,6,12));
+					deck.add(new CreatureCard("The Moon's Vengeance","blue",8,6,12));
 					deck.add(new CreatureCard("Ormos, Archive Keeper","blue",6,5,5));
 					deck.add(new CreatureCard("Phantom Carraige","When Phantom Carraige enters the battlefield, draw a card.","blue",4,3,3,"draw"));
 					deck.add(new CreatureCard("Rapid Swinger","blue",4,6,2));	

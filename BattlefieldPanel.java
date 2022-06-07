@@ -58,8 +58,8 @@ public class BattlefieldPanel extends JLayeredPane
 	}
 	public void removeCreature(int n)
 	{
-		this.remove(creatures.remove(n));
-		this.arrangeCreatures();
+		CardSleeve2 card = creatures.get(n);
+		removeCreature(card);
 	}
 	
 	

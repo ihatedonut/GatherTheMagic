@@ -297,6 +297,7 @@ public class TestGUI extends JFrame
 					((CreatureCard)background.getBatPanel1().getCreatures().get(i).getAttachedCard()).setTapped(true);
 					background.getBatPanel1().getCreatures().get(i).setBorder(BorderFactory.createLineBorder(Color.black));
 					background.getBatPanel1().getCreatures().get(i).remove(background.getBatPanel1().getCreatures().get(i).getAttackImage());
+					background.getBatPanel1().getCreatures().get(i).setAttacking(false);
 					c.sendMessage("removeattacker-" + i);
 					c.sendMessage("tapcreature-" + i);
 				}
@@ -304,24 +305,24 @@ public class TestGUI extends JFrame
 				{
 					CardSleeve2 attacker = background.getBatPanel1().getCreatures().get(i);
 					CardSleeve2 blocker = background.getBatPanel1().getCreatures().get(i).getBlockedBy();
-				
-					c.sendMessage("removeattacker-" + i);
-					c.sendMessage("tapcreature-" + i);
 					
 					boolean removeBlocker = false;
 					boolean removeAttacker = false;
 					
 					if (((CreatureCard)attacker.getAttachedCard()).getPower() >= ((CreatureCard)blocker.getAttachedCard()).getToughness())
 					{
-						c.sendMessage("removeCreature-" + "you-" + background.getBatPanel2().getCreatures().indexOf(blocker));
 						removeBlocker = true;
-						
-						
 					}
-					if ( ((CreatureCard)blocker.getAttachedCard()).getPower() >= ((CreatureCard)attacker.getAttachedCard()).getToughness());
+					if ( ((CreatureCard)blocker.getAttachedCard()).getPower() >= ((CreatureCard)attacker.getAttachedCard()).getToughness())
 					{
-						c.sendMessage("removeCreature-" + "other-" + background.getBatPanel1().getCreatures().indexOf(attacker));
 						removeAttacker = true;
+					}
+					else
+					{
+						((CreatureCard)attacker.getAttachedCard()).setTapped(true);
+						attacker.setAttacking(false);
+						attacker.setBorder(BorderFactory.createLineBorder(Color.black));
+						attacker.remove(attacker.getAttackImage());
 					}
 					
 					if (removeBlocker)
