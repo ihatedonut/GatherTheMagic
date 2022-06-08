@@ -10,6 +10,8 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 
@@ -107,6 +109,18 @@ public class CardSleeve extends JComponent
 						else
 						{
 							panel.arrangeCards();
+							try {
+								Sounds.cardFail();
+							} catch (UnsupportedAudioFileException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							} catch (IOException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							} catch (LineUnavailableException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
 						}
 					}
 					else if (card instanceof CreatureCard)
@@ -128,15 +142,51 @@ public class CardSleeve extends JComponent
 								((LandCard) panel2.getLandCards().get(i).getAttachedCard()).setTapped(true);
 							}
 							panel2.arrangeLands();
+							try {
+								Sounds.cardFail();
+							} catch (UnsupportedAudioFileException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							} catch (IOException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							} catch (LineUnavailableException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
 						}
 						else
 						{
 							panel.arrangeCards();
+							try {
+								Sounds.cardFail();
+							} catch (UnsupportedAudioFileException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							} catch (IOException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							} catch (LineUnavailableException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
 						}
 					}
 					else
 					{
 						panel.arrangeCards();
+						try {
+							Sounds.cardFail();
+						} catch (UnsupportedAudioFileException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						} catch (LineUnavailableException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 					}
 				}
 			}
@@ -205,13 +255,26 @@ public class CardSleeve extends JComponent
 			battlefield2.removeAllCreatures();
 			battlefield.repaint();
 			battlefield2.repaint();
+			try {
+				Sounds.mellis();
+			} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		else if (ability.equals("gainlifepercreature"))
 		{
+			try {
+				Sounds.aidan();
+			} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			game.getPlayer1().incrementLife(battlefield.getCreatures().size());
 			batPanel.getLifeLabel().setLife(game.getPlayer1().getLife());
 			batPanel.repaint();
 			c.sendMessage("lifegained-" + battlefield.getCreatures().size());
+			
 		}
 		else if (ability.equals("returncreature"))
 		{
@@ -238,6 +301,12 @@ public class CardSleeve extends JComponent
 			for (int i = 0; i < battlefield.getCreatures().size(); i++)
 			{
 				panel.addCard(new CardSleeve(batPanel.getHandPanel(), batPanel.getLandPanel(), game.getPlayer1().draw(), game, batPanel.getBatPanel1(), batPanel.getBatPanel2(), batPanel, c));
+				try {
+					Sounds.sam();
+				} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}
 		else if (ability.equals("damagepercreature"))
@@ -246,6 +315,18 @@ public class CardSleeve extends JComponent
 			game.getPlayer2().decrementLife(damage);
 			batPanel.getLifeLabel2().setLife(game.getPlayer2().getLife());
 			c.sendMessage("damagetaken-" + damage);
+			try {
+				Sounds.john();
+			} catch (UnsupportedAudioFileException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (LineUnavailableException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		else if (ability.equals("+1+1percreature"))
 		{
