@@ -198,6 +198,7 @@ public class TestGUI extends JFrame
 			String position = message.substring(hyphon + 1);
 			int positionNum = Integer.parseInt(position);
 			background.getBatPanel2().getCreatures().get(positionNum).setAttacking(false);
+			System.out.println("Attacker removed: " + background.getBatPanel2().getCreatures().get(positionNum).getAttachedCard().getName() + " " + background.getBatPanel2().getCreatures().get(positionNum).getAttacking());
 			background.getBatPanel2().getCreatures().get(positionNum).remove(background.getBatPanel2().getCreatures().get(positionNum).getAttackImage());
 		}
 		else if (message.indexOf("addBlocker") != -1)
@@ -225,6 +226,7 @@ public class TestGUI extends JFrame
 			int blockerNum = Integer.parseInt(blocker);
 			
 			background.getBatPanel1().getCreatures().get(attackerNum).setBlockedBy(null);
+			System.out.println(background.getBatPanel1().getCreatures().get(attackerNum).getBlockedBy());
 			background.getBatPanel2().getCreatures().get(blockerNum).setBlockingCard(null);
 		}
 		else if (message.indexOf("attackfinished") != -1)
@@ -241,6 +243,7 @@ public class TestGUI extends JFrame
 			{
 				if (background.getBatPanel2().getCreatures().get(i).getAttacking())
 				{
+					System.out.println(background.getBatPanel2().getCreatures().get(i).getAttachedCard().getName() + " is attacking");
 					otherPersonAttacking = true;
 				}
 			}
@@ -323,6 +326,7 @@ public class TestGUI extends JFrame
 						attacker.setAttacking(false);
 						attacker.setBorder(BorderFactory.createLineBorder(Color.black));
 						attacker.remove(attacker.getAttackImage());
+						c.sendMessage("removeattacker-" + i);
 					}
 					
 					if (removeBlocker)

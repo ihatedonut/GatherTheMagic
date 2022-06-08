@@ -251,7 +251,7 @@ public class CardSleeve2 extends JComponent
 	}
 	public void setAttacking(boolean b)
 	{
-		isAttacking = true;
+		isAttacking = b;
 	}
 	public void setBlocking(boolean b)
 	{

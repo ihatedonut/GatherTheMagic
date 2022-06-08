@@ -247,6 +247,10 @@ public class CardSleeve extends JComponent
 			batPanel.getLifeLabel2().setLife(game.getPlayer2().getLife());
 			c.sendMessage("damagetaken-" + damage);
 		}
+		else if (ability.equals("+1+1percreature"))
+		{
+			
+		}
 		
 	}
 }

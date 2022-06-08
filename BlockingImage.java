@@ -32,6 +32,12 @@ public class BlockingImage extends JComponent
 	{
 		blockingNum.setText(i + "");
 	}
+	public void resetBlockingNum()
+	{
+		blockingNum.setText("");
+	}
+	
+	
 	public JLabel getBlockingNum()
 	{
 		return blockingNum;

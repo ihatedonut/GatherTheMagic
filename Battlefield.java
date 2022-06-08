@@ -183,12 +183,14 @@ public class Battlefield extends JPanel
 							}
 						}
 					}
-					
+
+					resetBlockingNums();	
 					
 					for (int i = 0; i < batPanel.getCreatures().size(); i++)
 					{
 						
 						batPanel.getCreatures().get(i).setBorder(BorderFactory.createLineBorder(Color.black));
+						batPanel.getCreatures().get(i).getBlockImage().resetBlockingNum();
 						try
 						{
 							batPanel.getCreatures().get(i).remove(batPanel.getCreatures().get(i).getBlockImage());
@@ -197,16 +199,29 @@ public class Battlefield extends JPanel
 						{}
 						batPanel.getCreatures().get(i).setBlockingCard(null);
 					}
-					for (int i = 0; i < batPanel2.getCreatures().size();i++)
+					
+					if (batPanel2.getCreatures().size() > 0)
 					{
-						batPanel2.getCreatures().get(i).setBlockedBy(null);
-						try
+						for (int i = 0; i < batPanel2.getCreatures().size();i++)
 						{
-							batPanel2.getCreatures().get(i).remove(batPanel2.getCreatures().get(i).getBlockImage());
+							batPanel2.getCreatures().get(i).setBlockedBy(null);
+							if (batPanel2.getCreatures().get(i).getAttacking())
+							{
+								System.out.println(batPanel2.getCreatures().get(i).getAttachedCard().getName() + " was attacking and is now tapped");
+								((CreatureCard) batPanel2.getCreatures().get(i).getAttachedCard()).setTapped(true);
+								batPanel2.getCreatures().get(i).setAttacking(false);
+							}
+							
+							
+							try
+							{
+								batPanel2.getCreatures().get(i).remove(batPanel2.getCreatures().get(i).getBlockImage());
+							}
+							catch (Exception ex)
+							{}
 						}
-						catch (Exception ex)
-						{}
 					}
+					
 				}
 			
 			}
@@ -541,6 +556,14 @@ public class Battlefield extends JPanel
 	public ArrayList<Integer> getBlockingNums()
 	{
 		return blockingNums;
+	}
+	public void resetBlockingNums()
+	{
+		blockingNums.removeAll(blockingNums);
+		for (int i = 1; i <= 20; i++)
+		{
+			blockingNums.add(i);
+		}
 	}
 }
 	
