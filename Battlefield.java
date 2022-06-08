@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.imageio.ImageIO;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -356,6 +358,18 @@ public class Battlefield extends JPanel
 						add(attackLabel);
 						selectCardInstance = true;
 						attackCardSelect = true;
+						try {
+							Sounds.attack();
+						} catch (UnsupportedAudioFileException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						} catch (LineUnavailableException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 					}
 					else 
 					{
